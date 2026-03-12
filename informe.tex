@@ -42,8 +42,7 @@
 %                         DATOS (Conectados a RMarkdown)                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Título del Trabajo Final}
-\author{Primer participante \\ Segundo participante \\ Tercer
-participante}
+\author{Eymi Borjas \\ Fabiola Bocaney}
 
 % Lógica para Facultad: Si la defines en el YAML la usa, si no, usa la default
 
@@ -53,7 +52,7 @@ Estadistica y Ciencias Actuariales}
 
 \degree{Computación I}
 \director{Jesus Ochoa \\ Oliver Triveño}
-\degreedate{Febrero 2026} 
+\degreedate{Marzo 2026} 
 \lugar{Caracas}
 
 \portadatrue 
@@ -112,37 +111,90 @@ investigación\ldots{}             % Aquí se pega el texto que escribiste en el
 % --- CAMBIO CRÍTICO 2: Aquí RMarkdown inyecta todo tu texto ---
 \chapter*{Introducción}
 
-Introducción del trabajo de investigación
+Este documento técnico se encuentra estructurado en cinco capítulos
+fundamentales:
+
+Capítulo I Se expone la relevancia de analizar la consistencia deportiva
+frente a la efectividad aislada, formulando las preguntas de
+investigación y delimitando el alcance.
+
+Capítulo II Establece el Marco Teórico, definiendo los conceptos
+estadísticos clave como, necesarios para la interpretación de los datos.
+
+Capítulo III Describe el Marco Metodológico, detallando el proceso de
+limpieza de datos (ETL), las pruebas de hipótesis y los algoritmos
+utilizados para validar la calidad de la información.
+
+Capítulo IV Presenta el Análisis de Resultados, donde se exhiben las
+tablas y gráficos generados dinámicamente.
+
+Capítulo V Expone los hallazgos finales sobre qué factores determinaron
+la victoria en 2022. Se concluye sobre la estabilidad de los equipos y
+se ofrecen recomendaciones estratégicas basadas en la evidencia
+estadística obtenida.
 
 \chapter{Planteamiento del Problema}
 
-Describir planteamiento del problema\\
+En el baloncesto de élite, ganar un partido no siempre depende de qué
+tan alto sea el promedio de un equipo, sino de qué tan consistente pueda
+ser ese rendimiento bajo presión. El análisis de los 542 registros de la
+NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos
+por una falta de talento general o por una irregularidad drástica en
+momentos clave?
+
+El problema radica en que el porcentaje de tiro (FG\_PCT) suele ser
+volátil. Cuando un equipo pierde, no siempre queda claro si es por una
+ineficiencia constante o por una alta variabilidad (inestabilidad) en
+sus lanzamientos. Además, existe una brecha en la comprensión de cómo
+factores específicos, como superar el 50\% de efectividad de campo o
+dominar la batalla de rebotes, actúan como predictores determinantes de
+la victoria.\\
 
 Argumento final. Debido a esto, se plantea las siguientes preguntas de
 investigación:\\
 
-\textbf{1.} Pregunta1\\
+\textbf{1.} ¿Es la derrota en la NBA 2022 consecuencia de una
+ineficiencia constante en el tiro o se debe a una alta volatilidad e
+inestabilidad en el porcentaje de campo (FG\_PCT)?\\
 
-\textbf{2.} Pregunta2\\
+\textbf{2.} ¿En qué medida el superar el umbral del 50\% de efectividad
+en tiros de campo o ganar la batalla de rebotes garantiza
+estadísticamente una victoria en el marcador final?\\
 
-\textbf{3.} Pregunta3\\
+\textbf{3.}¿Cómo se transforma el volumen de puntos anotados (PTS) a
+medida que un equipo escala en sus rangos de eficiencia de tiro?\\
 
 \section{Justificación}
 
-Justificación del trabajo de investigación\\
+El presente trabajo se delimita al análisis de la temporada 2022 con el
+fin de garantizar la homogeneidad en el contexto táctico y reglamentario
+de los datos. La selección de este periodo y de las variables
+correspondientes responde a los siguientes criterios:
+
+Se priorizan aquellos indicadores que reflejan directamente la
+eficiencia ofensiva y el control del juego, permitiendo un análisis con
+mayor valor interpretativo. El uso de este subconjunto de datos facilita
+la aplicación de herramientas de tendencia central, dispersión y tablas
+bivariantes, objetivos principales de este estudio.
+
+Al centrarse en un año específico, se eliminan ruidos estadísticos
+provocados por la evolución histórica del juego, permitiendo
+conclusiones más precisas sobre el rendimiento contemporáneo en la
+NBA.\\
 
 \section{Objetivos}
 
 \subsection{Objetivo General}
 \begin{itemize}
-  \item{Describir objetivo general del trabajo de investigación}
+  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2022, mediante el análisis de medidas de dispersión y tablas de contingencia.}
 \end{itemize}
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-  \item{Describir objetivo 1 del trabajo de investigación}
-  \item{Describir objetivo 2 del trabajo de investigación}
-  \item{Describir objetivo 3 del trabajo de investigación}
+  \item{Analizar el porcentaje de tiro $(FG_PCT)$ en las derrotas para determinar si los partidos se pierden por una baja eficiencia constante o por una alta inestabilidad en el tiro.}
+  \item{Categorizar el porcentaje de tiro $(FG_PCT)$ en niveles para observar cómo cambia el promedio de puntos anotados en cada nivel.}
+  \item{Construir tablas para cuantificar la frecuencia de victorias}
+ \item{Generar un reporte técnico reproducible en formato PDF que integre visualizaciones estadísticas y tablas resumen utilizando RMarkdown y LaTeX.}
 \end{itemize}
 
 \section{Cobertura}
