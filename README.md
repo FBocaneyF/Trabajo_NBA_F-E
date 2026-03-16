@@ -43,10 +43,9 @@ Evaluar la incidencia de la estabilidad en el tiro y la relación entre indicado
 
 ## Objetivos Específicos
 
-**1.** Analizar el porcentaje de tiro en las derrotas para determinar si los partidos se pierden por una baja eficiencia constante o por una alta inestabilidad en el tiro.
+**1.** Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.
 
-**2.** Determinar la correlación existente entre la cantidad de rebotes ganados y el éxito en el marcador final.
+**2.** Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.
 
-**3.** Categorizar los encuentros de la temporada 2022 de la NBA según su 'Margen de Competitividad' (diferencia en el marcador), para posteriormente evaluar si existe una correlación entre dicho margen y el nivel de estabilidad en el tiro de campo de los equipos.
-
+**3.** Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.
 
