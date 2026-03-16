@@ -54,7 +54,7 @@ library(kableExtra)
 library(scales)
 ```
 
-\chapter*{Introducción}
+\chapter*{Estructura del informe}
 
 Este documento técnico se encuentra estructurado en cinco capítulos fundamentales:
 
@@ -100,10 +100,11 @@ Al centrarse en un año específico, se eliminan ruidos estadísticos provocados
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-  \item{Analizar el porcentaje de tiro $(FG_PCT)$ en las derrotas para determinar si los partidos se pierden por una baja eficiencia constante o por una alta inestabilidad en el tiro.}
-  \item{Categorizar el porcentaje de tiro $(FG_PCT)$ en niveles para observar cómo cambia el promedio de puntos anotados en cada nivel.}
-  \item{Construir tablas para cuantificar la frecuencia de victorias}
- \item{Generar un reporte técnico reproducible en formato PDF que integre visualizaciones estadísticas y tablas resumen utilizando RMarkdown y LaTeX.}
+  \item{Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.}
+  
+  \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
+  
+  \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
 \end{itemize}
 
 \section{Cobertura}
