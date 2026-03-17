@@ -168,7 +168,23 @@ En esta sección se presentan las metodologías y/o test necesarios relacionados
 
 Desarrollo\
 
-\subsection{Item 1}
+\subsection{Procesamiento y limpieza de datos (ETL}
+
+```{r}
+library(tidyverse)
+library(knitr)
+
+nba_data <- read_csv("NBA.csv")
+
+nba_limpio <- nba_data %>%
+  filter( SEASON == 2022) %>%
+  select(-GAME_DATE_EST, -GAME_ID, -GAME_STATUS_TEXT, -HOME_TEAM_ID, -VISITOR_TEAM_ID, -TEAM_ID_home, -TEAM_ID_away) %>%
+  mutate(SEASON = as.character(SEASON))%>%
+  mutate(HOME_TEAM_WINS = as.factor(HOME_TEAM_WINS))
+  
+glimpse(nba_limpio)
+```
+
 
 Descripción\
 
