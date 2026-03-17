@@ -76,11 +76,11 @@ El problema radica en que el porcentaje de tiro (FG_PCT) suele ser volátil. Cua
 Argumento final. Debido a esto, se plantea las siguientes preguntas de investigación:\
 
 
-\textbf{1.}	¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo (FG_PCT)?\
+\textbf{1.}	¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo?\
 
-\textbf{2.}	¿En qué medida el superar el umbral del 50% de efectividad en tiros de campo o ganar la batalla de rebotes garantiza estadísticamente una victoria en el marcador final?\
+\textbf{2.}	¿Como incide la capacidad de domino en el rebote sobre la victoria en el marcador final?\
 
-\textbf{3.}¿Cómo se transforma el volumen de puntos anotados (PTS) a medida que un equipo escala en sus rangos de eficiencia de tiro?\
+\textbf{3.} ¿Existe una relación en la que los indicadores clave de rendimiento (puntos, rebotes y asistencias) afecten a la estabilidad en el tiro de campo, y si en los juegos más cerrados tienen un menor porcentaje?\
 
 
 \section{Justificación}
@@ -95,15 +95,15 @@ Al centrarse en un año específico, se eliminan ruidos estadísticos provocados
  
 \subsection{Objetivo General}
 \begin{itemize}
-  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2022, mediante el análisis de medidas de dispersión y tablas de contingencia.}
+  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación entre indicadores clave de rendimiento en el resultado final de los partidos de la NBA en el año 2022.}
 \end{itemize}
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-  \item{Analizar el porcentaje de tiro $(FG_PCT)$ en las derrotas para determinar si los partidos se pierden por una baja eficiencia constante o por una alta inestabilidad en el tiro.}
-  \item{Categorizar el porcentaje de tiro $(FG_PCT)$ en niveles para observar cómo cambia el promedio de puntos anotados en cada nivel.}
-  \item{Construir tablas para cuantificar la frecuencia de victorias}
- \item{Generar un reporte técnico reproducible en formato PDF que integre visualizaciones estadísticas y tablas resumen utilizando RMarkdown y LaTeX.}
+  \item{Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.}
+  \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
+  \item{Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
+
 \end{itemize}
 
 \section{Cobertura}
@@ -182,7 +182,6 @@ nba_limpio <- nba_data %>%
   mutate(SEASON = as.character(SEASON))%>%
   mutate(HOME_TEAM_WINS = as.factor(HOME_TEAM_WINS))
   
-glimpse(nba_limpio)
 ```
 
 
