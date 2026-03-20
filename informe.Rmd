@@ -163,7 +163,40 @@ Descripción de la definición n\
 
 
 \chapter{Marco Metódico}
-En esta sección se presentan las metodologías y/o test necesarios relacionados con la práctica divulgada en el marco teórico, así como las fuentes de datos.
+En este capítulo explicamos el camino que seguimos para analizar qué tan constantes fueron los equipos de la NBA en la temporada 2022, detallando como recolectamos los datos y que lógica estadística aplicamos.
+
+Enfoque y Diseño de la Investigación
+
+Este estudio tiene un enfoque cuantitativo con un alcance descriptivo-correlacional
+Es descriptivo porque nos interesa detallar el comportamiento del porcentaje de tiro de campo $(FG_PCT)$.
+
+Es correlacional porque buscamos entender la relación entre variables (como los rebotes o el margen de puntos) y el resultado final del juego (gano o perdió)
+
+Población y Muestra
+
+Universo: Todos los partidos disputados en la NBA durante la era moderna.
+
+Muestra: Trabajamos con un grupo de 542 registros de la temporada de la NBA del año 2022. Elegimos esta muestra por una cuestión de conveniencia temporal, ya que nos permite analizar las tácticas y el estilo de juego que se utilizan en el basquetbol actual.
+
+Procedimiento de Gestión de Datos (ETL)
+
+El proceso de Extracción, Transformación y Carga (ETL) se ejecutó en tres fases:
+Limpieza: Eliminación de registros duplicados y tratamiento de valores atípicos (outliers) que son esos puntajes muy extraños que pueden alterar el promedio
+Normalización: Ajuste de escalas para comparar equipos con diferentes ritmos de juego (Pace)
+Segmentación: Categorización de los partidos según su competitividad (Close Games vs. Blowouts).
+
+Técnicas de Análisis Estadístico
+
+Para validar las preguntas de investigación, se aplicarán las siguientes herramientas:
+
+Análisis de Tendencia Central y Dispersión: Uso de la media 
+para la eficiencia y la varianza para la inestabilidad del tiro.
+
+Pruebas de Hipótesis: Aplicación de pruebas  de Student para comparar las medias de efectividad entre partidos ganados y perdidos.
+
+Tablas Bivariantes: Para observar la incidencia del rebote sobre la probabilidad de victoria.
+
+Análisis de Correlación de Pearson: Para medir la fuerza de la relación entre indicadores clave (puntos, asistencias) y la estabilidad del tiro
  
 \section{Bases metódicas utilizadas en el trabajo de investigación}
 
