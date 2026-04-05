@@ -44,6 +44,25 @@ desviacion_perdidas = df_nba['FG_PCT_Perdedor'].std()
     # CV
 volatilidad = (desviacion_perdidas / media_perdidas) * 100
 
+  #pt2 defino ganadores y perdedores en los pts y rebotes
+# REBOTES
+df_nba['REB_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_home'], df_nba['REB_away'])
+df_nba['REB_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_away'], df_nba['REB_home'])
+
+# PUNTOS
+df_nba['PTS_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_home'], df_nba['PTS_away'])
+df_nba['PTS_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_away'], df_nba['PTS_home'])
+
+
+    # Diff de Rebotes y pts (G - P)
+df_nba['Diferencial_Rebotes'] = df_nba['REB_Ganador'] - df_nba['REB_Perdedor']
+df_nba['Margen_Victoria'] = df_nba['PTS_Ganador'] - df_nba['PTS_Perdedor']
+  
+avg_ganador = df_nba['REB_Ganador'].mean()
+avg_perdedor = df_nba['REB_Perdedor'].mean()
+partidos_mas_rebotes_ganan  = len(df_nba[df_nba['Diferencial_Rebotes'] > 0])
+porcentaje_exito = (partidos_mas_rebotes_ganan / len(df_nba)) * 100
+
 
 #titulo del pedazo blanco
 st.title("Dashboard de la NBA 🏀")
@@ -117,5 +136,37 @@ with tab2:
     st.header("Objetivo 2: Incidencia del Rebote en la Victoria")
     st.write("Comparacion los rebotes de ganadores vs perdedores.")
 
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Promedio Rebotes Ganador", f"{avg_ganador:.1f}")
+    col2.metric("Promedio Rebotes Perdedor", f"{avg_perdedor:.1f}")
+    col3.metric("% Victorias con +Rebotes", f"{porcentaje_exito:.1f}%")
 
+    st.divider()
+    st.subheader("📈 Correlación: Rebotes vs. Puntos Anotados")
+
+    fig_scatter = px.scatter(
+        df_nba, x='Diferencial_Rebotes', y='Margen_Victoria',
+        color_discrete_sequence=["#C82C2C"],
+        title="Relación: Ventaja en Rebotes vs. Ventaja en Puntos",
+        labels={'Diferencial_Rebotes': 'Diferencia de Rebotes', 
+                'Margen_Victoria': 'Diferencia de Puntos'},
+        opacity=0.6
+    )
+    # Añadir línea de tendencia para mostrar la incidencia
+    fig_scatter.add_vline(x=0, line_dash="dash", line_color="gray")
+    fig_scatter.add_hline(y=0, line_dash="dash", line_color="gray")
+    
+    st.plotly_chart(fig_scatter)
+
+    # Métricas de resumen
+    correlacion = df_nba['Diferencial_Rebotes'].corr(df_nba['Margen_Victoria'])
+
+    st.metric("Coeficiente de Correlación (Incidencia)", f"{correlacion:.2f}")
+    
+    st.write("""
+    **Interpretación:** Un valor cercano a 1 indica que el dominio del rebote 
+    está fuertemente asociado con un mayor margen de puntos en el marcador final.
+    """)
+
+    
     
