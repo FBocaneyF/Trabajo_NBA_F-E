@@ -1,10 +1,10 @@
 ---
 # --- Metadatos Básicos ---
-title: "Título del Trabajo Final"
+title: "Análisis Estadístico del Éxito Deportivo de la temporada NBA 2022"
 author:
    - Eymi Borjas
    - Fabiola Bocaney
-date: "Marzo 2026"
+date: "Abril 2026"
 
 # --- Metadatos Específicos de Plantilla ---
 degree: "Computación I"
@@ -54,27 +54,37 @@ library(kableExtra)
 library(scales)
 ```
 
-\chapter*{Estructura del informe}
+\chapter*{Introducción}
 
-Este documento técnico se encuentra estructurado en cinco capítulos fundamentales:
+La NBA es la mejor liga de baloncesto del mundo, donde los mejores jugadores compiten constantemente bajo presión. En esta Competencia, ganar un partido no solo depende del talento físico, sino también de la inteligencia táctica y del manejo de los datos. El baloncesto moderno de hoy se apoya en la estadística para entender qué factores, como la puntería o el control de los rebotes, aseguran que un equipo permanezca en la cima.\
 
-Capítulo I Se expone la relevancia de analizar la consistencia deportiva frente a la efectividad aislada, formulando las preguntas de investigación y delimitando el alcance.
+El presente estudio analiza el desempeño de los equipos de la NBA durante la temporada 2022, utilizando una base de datos de 542 partidos. El objetivo principal es entender por qué algunos equipos ganan y otros pierden, y si esto se debe a una falta de puntería constante o a rachas de inestabilidad durante el juego.\
 
-Capítulo II Establece el Marco Teórico, definiendo los conceptos estadísticos clave como, necesarios para la interpretación de los datos.
+A través de herramientas de estadística y computación, este trabajo explora cómo influyen el porcentaje de tiros, los rebotes y las asistencias en el marcador final. No se trata solo de ver quién anota más, sino de identificar qué factores, como el control del balón y la consistencia en los lanzamientos, son los que realmente aseguran la victoria.\
 
-Capítulo III Describe el Marco Metodológico, detallando el proceso de limpieza de datos (ETL), las pruebas de hipótesis y los algoritmos utilizados para validar la calidad de la información.
+\section*{Estructura del Informe}
 
-Capítulo IV Presenta el Análisis de Resultados, donde se exhiben las tablas y gráficos generados dinámicamente.
+\begin{itemize}
 
-Capítulo V Expone los hallazgos finales sobre qué factores determinaron la victoria en 2022. Se concluye sobre la estabilidad de los equipos y se ofrecen recomendaciones estratégicas basadas en la evidencia estadística obtenida.
+    \item \textbf{Capítulo I}, Se expone la relevancia de analizar la consistencia deportiva frente a la efectividad aislada, formulando las preguntas de investigación y delimitando el alcance.
+    
+    \item \textbf{Capítulo II}, Establece el Marco Teórico, definiendo los conceptos estadísticos clave como, necesarios para la interpretación de los datos.
+    
+    \item \textbf{Capítulo III}, Describe el Marco Metodológico, detallando el proceso de limpieza de datos (ETL), las pruebas de hipótesis y los algoritmos utilizados para validar la calidad de la información.
+    
+    \item \textbf{Capítulo IV}, Presenta el Análisis de Resultados, donde se exhiben las tablas y gráficos generados dinámicamente.
+    
+    \item \textbf{Capítulo V}, Expone los hallazgos finales sobre qué factores determinaron la victoria en 2022. Se concluye sobre la estabilidad de los equipos y se ofrecen recomendaciones estratégicas basadas en la evidencia estadística obtenida.
+    
+\end{itemize}
 
 \chapter{Planteamiento del Problema}
-En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan consistente pueda ser ese rendimiento bajo presión. El análisis de los 542 registros de la NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una irregularidad drástica en momentos clave?
+
+En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan consistente pueda ser ese rendimiento bajo presión. El análisis de los 542 registros de la NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una irregularidad drástica en momentos clave?\
 
 El problema radica en que el porcentaje de tiro (FG_PCT) suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el 50% de efectividad de campo o dominar la batalla de rebotes, actúan como predictores determinantes de la victoria.\
 
-Argumento final. Debido a esto, se plantea las siguientes preguntas de investigación:\
-
+Debido a esto, se plantea las siguientes preguntas de investigación:\
 
 \textbf{1.}	¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo (FG_PCT)?\
 
@@ -85,9 +95,9 @@ Argumento final. Debido a esto, se plantea las siguientes preguntas de investiga
 
 \section{Justificación}
 
-El presente trabajo se delimita al análisis de la temporada 2022 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:
+El presente trabajo se delimita al análisis de la temporada 2022 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:\
 
-Se priorizan aquellos indicadores que reflejan directamente la eficiencia ofensiva y el control del juego, permitiendo un análisis con mayor valor interpretativo. El uso de este subconjunto de datos facilita la aplicación de herramientas de tendencia central, dispersión y tablas bivariantes, objetivos principales de este estudio.
+Se priorizan aquellos indicadores que reflejan directamente la eficiencia ofensiva y el control del juego, permitiendo un análisis con mayor valor interpretativo. El uso de este subconjunto de datos facilita la aplicación de herramientas de tendencia central, dispersión y tablas bivariantes, objetivos principales de este estudio.\
 
 Al centrarse en un año específico, se eliminan ruidos estadísticos provocados por la evolución histórica del juego, permitiendo conclusiones más precisas sobre el rendimiento contemporáneo en la NBA.\
 
@@ -101,17 +111,10 @@ Al centrarse en un año específico, se eliminan ruidos estadísticos provocados
 \subsection{Objetivos Específicos}
 \begin{itemize}
   \item{Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.}
-  
   \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
-  
-  \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
+  \item{Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
 \end{itemize}
 
-\section{Cobertura}
-
-\subsection{Horizontal}
-
-Describir la cobertura Horizontal del trabajo de investigación\
 
 \begin{table}[ht]
 \centering
@@ -129,14 +132,9 @@ VARIABLE n\\
 }
 \end{table}
 
-\subsection{Vertical}
-
-Describir la cobertura Vertical del trabajo de investigación
-
-
 \section{Periodo de Referencia}
 
-Describir la fuente y el Periodo de Referencia utilizado en el trabajo de investigación
+El conjunto de datos a utilizar para este estudio pertenece al repositorio abierto de Kaggle (“NBA games data”), del cual se tomo como período de referencia los datos de la NBA temporada 2022.\
 
 \section{Variables}
 
@@ -147,57 +145,77 @@ Describir la variable en estudio en el trabajo de investigación
 
 \section{Bases Teóricas}
 
-Resumen de las bases teoricas explicadas en el capitulo y su importancia\
+En este capítulo se definen los conceptos estadísticos y deportivos esenciales para realizar el análisis de los 542 registros de la temporada de la NBA del año 2022.\
 
-\subsection{Definición 1}
+Los conceptos que se presentan a continuación son las herramientas que nos permiten entender qué pasó realmente en la cancha durante la temporada 2022. Para ello, hemos organizado las definiciones en tres partes: las herramientas estadísticas para medir la consistencia, indicadores de juego para evaluar el talento, y el proceso de limpieza de datos, que garantiza que nuestro análisis de los 542 registros sea lo más cercano posible a la realidad.\
 
-Descripción de la definición 1\
+\subsection{Medidas De Tendendia Central (Media Aritmética)}
 
-\subsection{Definición 2}
+Es el valor promedio obtenido al sumar todos los datos de una variable (como el FG_PCT_home) y dividirlo por el número total de registros (n=542). En este estudio, la media representa la "eficacia esperada" de un equipo en condiciones normales.
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$\
 
-Descripción de la definición 2\
+\subsection{Medidas de dispersión (desviación Estándar)}
 
-\subsection{Definición n}
+Es la medida que determina cuánto se alejan los datos respecto a la media.\
 
-Descripción de la definición n\
+Una desviación estándar alta en el porcentaje de tiro de campo indica volatilidad, mientras que una desviación baja indica estabilidad.
+$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$\
+
+\subsection{Diferencia de Puntos}
+
+Definida como la variable que proviene de la resta entre puntos anotados y puntos recibidos. Funciona como un indicador de competitividad. Un margen cercano a cero indica un juego de alta presión donde la variabilidad de los datos suele aumentar.\
+
+\subsection{Tratamiento de Datos (Data Wrangling)}
+
+Se refiere al proceso de limpieza y transformación de los datos brutos del archivo NBA.csv.\
+
+Filtrado Lógico: Se selecciona un subconjunto de datos bajo criterios específicos (Temporada 2022).\
+
+Depuración: Verificación de valores nulos o atípicos (outliers) que podrían alterar los promedios de la temporada.\
+
+\subsection{Porcentaje de Tiros de Campo $(FG_PCT)$}
+
+Es la estadística general de puntería. Incluye todos los lanzamientos realizados durante el juego (tanto de 2 como de 3 puntos), excluyendo los tiros libres.\
+
+Valor Referencial: En la NBA, un 45% - 47% se considera el promedio de la liga. Superar el 50% es un indicador de alta eficiencia ofensiva.\
+
+\subsection{Porcentaje de Tiros de Tres Puntos $(FG3_PCT)$}
+
+Mide la eficacia exclusivamente en lanzamientos detrás de la línea de tres puntos. Es una variable crítica debido a que tiene una mayor volatilidad que los tiros de corta distancia.\
+
+Valor Referencial: Un 35% - 37% es el estándar de un equipo sólido. Un porcentaje inferior al 30% suele correlacionarse con la derrota en el baloncesto moderno.\
+
+
+\subsection{Porcentaje de Tiros Libres $(FT_PCT)$}
+
+Mide la eficiencia en lanzamientos desde la línea de castigo. Aunque no depende de la táctica de juego, es un factor de estabilidad emocional bajo presión.\
+
+Valor Referencial: El promedio de la liga ronda el 75% - 78%. En finales de partido cerrados, este indicador es determinante para mantener o remontar un marcador.\
+
+\subsection{Análisis de la Consistencia y la Volatilidad}
+
+Consistencia: Se define como la capacidad de mantener un rendimiento cercano a la media. Estadísticamente, se mide a través de una baja desviación estándar.\
+
+Volatilidad: Representa la inestabilidad. Un equipo volátil puede tener partidos de un 60% de efectividad y otros de un 30%, lo que genera incertidumbre en el resultado.\
+
+\subsection{El Rebote como Factor de Control}
+
+El rebote (REB) representa el momento exacto en el que un equipo recupera la posesión y toma las riendas del juego. En este estudio, lo tratamos como una variable clave de control. La idea es descubrir si existe un umbral de rebotes que asegure estadísticamente la victoria.\
+
+\subsection{Margen de competitividad}
+
+Se define como la diferencia absoluta de puntos entre el equipo local y el visitante. Permite clasificar los juegos en:\
+
+Cerrados: Diferencia menor o igual a 5 puntos.\
+Normales: Diferencia entre 6 y 14 puntos.\
+Abultados: Diferencia mayor o igual a 15 puntos.\
+
+
 
 
 \chapter{Marco Metódico}
-En este capítulo explicamos el camino que seguimos para analizar qué tan constantes fueron los equipos de la NBA en la temporada 2022, detallando como recolectamos los datos y que lógica estadística aplicamos.
 
-Enfoque y Diseño de la Investigación
 
-Este estudio tiene un enfoque cuantitativo con un alcance descriptivo-correlacional
-Es descriptivo porque nos interesa detallar el comportamiento del porcentaje de tiro de campo $(FG_PCT)$.
-
-Es correlacional porque buscamos entender la relación entre variables (como los rebotes o el margen de puntos) y el resultado final del juego (gano o perdió)
-
-Población y Muestra
-
-Universo: Todos los partidos disputados en la NBA durante la era moderna.
-
-Muestra: Trabajamos con un grupo de 542 registros de la temporada de la NBA del año 2022. Elegimos esta muestra por una cuestión de conveniencia temporal, ya que nos permite analizar las tácticas y el estilo de juego que se utilizan en el basquetbol actual.
-
-Procedimiento de Gestión de Datos (ETL)
-
-El proceso de Extracción, Transformación y Carga (ETL) se ejecutó en tres fases:
-Limpieza: Eliminación de registros duplicados y tratamiento de valores atípicos (outliers) que son esos puntajes muy extraños que pueden alterar el promedio
-Normalización: Ajuste de escalas para comparar equipos con diferentes ritmos de juego (Pace)
-Segmentación: Categorización de los partidos según su competitividad (Close Games vs. Blowouts).
-
-Técnicas de Análisis Estadístico
-
-Para validar las preguntas de investigación, se aplicarán las siguientes herramientas:
-
-Análisis de Tendencia Central y Dispersión: Uso de la media 
-para la eficiencia y la varianza para la inestabilidad del tiro.
-
-Pruebas de Hipótesis: Aplicación de pruebas  de Student para comparar las medias de efectividad entre partidos ganados y perdidos.
-
-Tablas Bivariantes: Para observar la incidencia del rebote sobre la probabilidad de victoria.
-
-Análisis de Correlación de Pearson: Para medir la fuerza de la relación entre indicadores clave (puntos, asistencias) y la estabilidad del tiro
- 
 \section{Bases metódicas utilizadas en el trabajo de investigación}
 
 Desarrollo\
