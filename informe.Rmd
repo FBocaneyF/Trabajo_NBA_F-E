@@ -211,8 +211,6 @@ Normales: Diferencia entre 6 y 14 puntos.\
 Abultados: Diferencia mayor o igual a 15 puntos.\
 
 
-
-
 \chapter{Marco Metódico}
 
 
