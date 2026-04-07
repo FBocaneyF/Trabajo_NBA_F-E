@@ -152,14 +152,29 @@ Los conceptos que se presentan a continuación son las herramientas que nos perm
 \subsection{Medidas De Tendendia Central (Media Aritmética)}
 
 Es el valor promedio obtenido al sumar todos los datos de una variable (como el FG_PCT_home) y dividirlo por el número total de registros (n=542). En este estudio, la media representa la "eficacia esperada" de un equipo en condiciones normales.
-$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$\
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
 
-\subsection{Medidas de dispersión (desviación Estándar)}
+\subsection{Medidas de dispersión:}
 
-Es la medida que determina cuánto se alejan los datos respecto a la media.\
+\begin{itemize}
 
-Una desviación estándar alta en el porcentaje de tiro de campo indica volatilidad, mientras que una desviación baja indica estabilidad.
-$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$\
+\item{\textbf{Desviación Estándar:} Es la medida que determina cuánto se alejan los datos respecto a la media.Una desviación estándar alta en el porcentaje de tiro de campo indica volatilidad, mientras que una desviación baja indica estabilidad.}
+
+$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
+
+\item{\textbf{Coeficiente de Variación:} Es una medida de dispersión relativa que expresa la desviación estándar como un porcentaje de la media. Permite determinar si la dispersión de los datos es significativa.}
+
+$$CV =  \frac{s}{\bar{x}} \times 100\%$$
+\end{itemize}
+
+\subsection{Medidas de Relación:}
+
+\begin{itemize}
+
+\item{\textbf{Correlación:} Cuantifica la fuerza y la dirección de la relación lineal entre dos variables numéricas. Se utiliza para evaluar si existe una dependencia entre variables. Un valor cercano a $+1$ indicaría una relación directa fuerte, mientras que un valor cercano a $0$ indicaría independencia entre las variables analizadas.}
+$$r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
+\end{itemize}
+
 
 \subsection{Diferencia de Puntos}
 
@@ -212,6 +227,8 @@ Abultados: Diferencia mayor o igual a 15 puntos.\
 
 
 \chapter{Marco Metódico}
+
+En esta sección se presentan las metodologías, procedimientos algorítmicos y pruebas estadísticas implementadas para validar los objetivos planteados en este estudio sobre el rendimiento deportivo. Se detalla el tratamiento técnico de la fuente de datos NBA.csv, las técnicas de limpieza y transformación de datos (Data Wrangling) y los métodos de análisis descriptivo utilizados para determinar la relación entre la eficiencia en el tiro, el dominio de los rebotes y el resultado final de los encuentros
 
 
 \section{Bases metódicas utilizadas en el trabajo de investigación}
