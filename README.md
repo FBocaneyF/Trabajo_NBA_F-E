@@ -1,4 +1,9 @@
 # Introducción
+ La NBA es la mejor liga de baloncesto del mundo, donde los mejores jugadores compiten constantemente bajo presión. En esta Competencia, ganar un partido no solo depende del talento físico, sino también de la inteligencia táctica y del manejo de los datos. El baloncesto moderno de hoy se apoya en la estadística para entender qué factores, como la puntería o el control de los rebotes, aseguran que un equipo permanezca en la cima.
+
+ El presente estudio analiza el desempeño de los equipos de la NBA durante la temporada 2022, utilizando una base de datos de 542 partidos. El objetivo principal es entender por qué algunos equipos ganan y otros pierden, y si esto se debe a una falta de puntería constante o a rachas de inestabilidad durante el juego.
+
+ A través de herramientas de estadística y computación, este trabajo explora cómo influyen el porcentaje de tiros, los rebotes y las asistencias en el marcador final. No se trata solo de ver quién anota más, sino de identificar qué factores, como el control del balón y la consistencia en los lanzamientos, son los que realmente aseguran la victoria.
 
 
 ## Estructura del Informe
@@ -21,12 +26,11 @@ El problema radica en que el porcentaje de tiro (FG_PCT) suele ser volátil. Cua
 
 Debido a esto, se plantea las siguientes preguntas de investigación:
 
-**1.** ¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo?
+**1.** ¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo (FG_PCT)?
 
-**2.** ¿Como incide la capacidad de domino en el rebote sobre la victoria en el marcador final?
+**2.** ¿En qué medida el superar el umbral del 50% de efectividad en tiros de campo o ganar la batalla de rebotes garantiza estadísticamente una victoria en el marcador final?
 
-**3.** ¿Existe una relación en la que los indicadores clave de rendimiento (puntos, rebotes y asistencias) afecten a la estabilidad en el tiro de campo, y si en los juegos más cerrados tienen un menor porcentaje?
-
+**3.** ¿Cómo se transforma el volumen de puntos anotados (PTS) a medida que un equipo escala en sus rangos de eficiencia de tiro?
 
 ## Justificación
 El presente trabajo se delimita al análisis de la temporada 2022 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:
@@ -39,7 +43,7 @@ Se priorizan aquellos indicadores que reflejan directamente la eficiencia ofensi
 # Objetivos
 
 ## Objetivo General
-Evaluar la incidencia de la estabilidad en el tiro y la relación entre indicadores clave de rendimiento en el resultado final de los partidos de la NBA en el año 2022.
+Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2022, mediante el análisis de medidas de dispersión y tablas de contingencia.
 
 ## Objetivos Específicos
 
@@ -48,4 +52,5 @@ Evaluar la incidencia de la estabilidad en el tiro y la relación entre indicado
 **2.** Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.
 
 **3.** Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.
+
 
