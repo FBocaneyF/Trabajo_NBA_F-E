@@ -1,4 +1,9 @@
 # Introducción
+ La NBA es la mejor liga de baloncesto del mundo, donde los mejores jugadores compiten constantemente bajo presión. En esta Competencia, ganar un partido no solo depende del talento físico, sino también de la inteligencia táctica y del manejo de los datos. El baloncesto moderno de hoy se apoya en la estadística para entender qué factores, como la puntería o el control de los rebotes, aseguran que un equipo permanezca en la cima.
+
+ El presente estudio analiza el desempeño de los equipos de la NBA durante la temporada 2022, utilizando una base de datos de 542 partidos. El objetivo principal es entender por qué algunos equipos ganan y otros pierden, y si esto se debe a una falta de puntería constante o a rachas de inestabilidad durante el juego.
+
+ A través de herramientas de estadística y computación, este trabajo explora cómo influyen el porcentaje de tiros, los rebotes y las asistencias en el marcador final. No se trata solo de ver quién anota más, sino de identificar qué factores, como el control del balón y la consistencia en los lanzamientos, son los que realmente aseguran la victoria.
 
 
 ## Estructura del Informe
@@ -42,11 +47,10 @@ Evaluar la incidencia de la estabilidad en el tiro y la relación de variables d
 
 ## Objetivos Específicos
 
-**1.** Analizar el porcentaje de tiro (FG_PCT) en las derrotas para determinar si los partidos se pierden por una baja eficiencia constante o por una alta inestabilidad en el tiro.
+**1.** Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.
 
-**2.** Categorizar el porcentaje de tiro (FG_PCT) en niveles para observar cómo cambia el promedio de puntos anotados en cada nivel.
+**2.** Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.
 
-**3.** Construir tablas para cuantificar la frecuencia de victorias
+**3.** Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.
 
-**4.** Generar un reporte técnico reproducible en formato PDF que integre visualizaciones estadísticas y tablas resumen utilizando RMarkdown y LaTeX.
 
