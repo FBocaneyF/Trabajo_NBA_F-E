@@ -22,15 +22,15 @@ Este documento técnico se encuentra estructurado en cinco capítulos fundamenta
 # Planteamiento del Problema
  En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan **consistente** pueda ser ese rendimiento bajo presión. El análisis de los 542 registros de la NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una **irregularidad drástica** en momentos clave?
  
-El problema radica en que el porcentaje de tiro (FG_PCT) suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el **50% de efectividad de campo** o dominar la **batalla de rebotes**, actúan como predictores determinantes de la victoria.
+El problema radica en que el porcentaje de tiro suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el **50% de efectividad de campo** o dominar la **batalla de rebotes**, actúan como predictores determinantes de la victoria.
 
 Debido a esto, se plantea las siguientes preguntas de investigación:
 
-**1.** ¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo (FG_PCT)?
+**1.** ¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo?
 
-**2.** ¿En qué medida el superar el umbral del 50% de efectividad en tiros de campo o ganar la batalla de rebotes garantiza estadísticamente una victoria en el marcador final?
+**2.** ¿Como incide la capacidad de domino en el rebote sobre la victoria en el marcador final?
 
-**3.** ¿Cómo se transforma el volumen de puntos anotados (PTS) a medida que un equipo escala en sus rangos de eficiencia de tiro?
+**3.** ¿Existe una relación en la que los indicadores clave de rendimiento (puntos, rebotes y asistencias) afecten a la estabilidad en el tiro de campo, y si en los juegos más cerrados tienen un menor porcentaje?
 
 ## Justificación
 El presente trabajo se delimita al análisis de la temporada 2022 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:
