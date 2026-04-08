@@ -1,3 +1,4 @@
+#Dashboar
 #cargo librerias
 import streamlit as st
 import pandas as pd
@@ -11,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# el cacho y los datos
+# el cache y los datos
 @st.cache_data
 def cargar_y_limpiar_datos():
     df = pd.read_csv("NBA.csv")
@@ -44,7 +45,9 @@ desviacion_perdidas = df_nba['FG_PCT_Perdedor'].std()
     # CV
 volatilidad = (desviacion_perdidas / media_perdidas) * 100
 
-  #pt2 defino ganadores y perdedores en los pts y rebotes
+
+
+    #pt2 defino ganadores y perdedores en los pts y rebotes
 # REBOTES
 df_nba['REB_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_home'], df_nba['REB_away'])
 df_nba['REB_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_away'], df_nba['REB_home'])
@@ -57,14 +60,44 @@ df_nba['PTS_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_awa
     # Diff de Rebotes y pts (G - P)
 df_nba['Diferencial_Rebotes'] = df_nba['REB_Ganador'] - df_nba['REB_Perdedor']
 df_nba['Margen_Victoria'] = df_nba['PTS_Ganador'] - df_nba['PTS_Perdedor']
-  
+
+    
 avg_ganador = df_nba['REB_Ganador'].mean()
 avg_perdedor = df_nba['REB_Perdedor'].mean()
 partidos_mas_rebotes_ganan  = len(df_nba[df_nba['Diferencial_Rebotes'] > 0])
 porcentaje_exito = (partidos_mas_rebotes_ganan / len(df_nba)) * 100
 
 
-#titulo del pedazo blanco
+#pt3 definir las clasificaciones
+# condiciones lógicas 
+condiciones = [
+    (df_nba['Margen_Victoria'] <= 5),
+    (df_nba['Margen_Victoria'] > 5) & (df_nba['Margen_Victoria'] < 15),
+    (df_nba['Margen_Victoria'] >= 15)
+]
+
+# nombres de categorias correspondientes a condicion
+categorias = ['Cerrado', 'Normal', 'Abierto']
+
+#  la nueva columna 
+df_nba['Tipo_Juego'] = np.select(condiciones, categorias, default='Sin clasificar')
+
+#ASISTENCIA
+df_nba['AST_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['AST_home'], df_nba['AST_away'])
+df_nba['AST_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['AST_away'], df_nba['AST_home'])
+
+df_nba['Diferencial_Asistencias'] = df_nba['AST_Ganador'] - df_nba['AST_Perdedor']
+
+#FG ganador
+
+df_nba['FG_PCT_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, 
+                                  df_nba['FG_PCT_home'], 
+                                  df_nba['FG_PCT_away'])
+
+
+
+
+#titulo 
 st.title("Dashboard de la NBA 🏀")
 st.markdown('Anslisis de la temporada 2022 de partidos de la NBA')
 
@@ -87,10 +120,10 @@ with tab1:
     col1.metric("Eficiencia Media (FG%)", f"{media_perdidas:.2%}")
     col2.metric("Índice de Volatilidad", f"{volatilidad:.2f}%")
 
-    st.info("Este análisis identifica si las derrotas son constantes o por picos de rendimiento.")
+    st.subheader("Este análisis identifica si las derrotas son constantes o por picos de rendimiento.")
     st.divider()
 
-    # graficote
+    # grafico
     df_plot = df_nba[['FG_PCT_Perdedor', 'FG3_PCT_Perdedor', 'FT_PCT_Perdedor']].melt(
         var_name='Tipo de Tiro', 
         value_name='Porcentaje'
@@ -125,17 +158,20 @@ with tab1:
     st.plotly_chart(fig, use_container_width=True)
 
     # la conclu
-    st.markdown(
+    st.markdown("""
     ### Interpretacion:
-    )
+    * **Ineficiencia:** Si la "caja" de una métrica está muy abajo en el eje Y, esa es la principal deficiencia del equipo al perder.
+    * **Volatilidad:** Mientras más larga sea la caja y los "bigotes", mayor es la inestabilidad en ese tipo de tiro. 
+    * **Outliers (Puntitos aislados):** Son partidos donde el equipo tiró excepcionalmente bien (o mal) pero el resultado no cambió.
+    """)
 
-    
+
 # OO 2
 
 with tab2:
     st.header("Objetivo 2: Incidencia del Rebote en la Victoria")
     st.write("Comparacion los rebotes de ganadores vs perdedores.")
-
+  
     col1, col2, col3 = st.columns(3)
     col1.metric("Promedio Rebotes Ganador", f"{avg_ganador:.1f}")
     col2.metric("Promedio Rebotes Perdedor", f"{avg_perdedor:.1f}")
@@ -146,19 +182,19 @@ with tab2:
 
     fig_scatter = px.scatter(
         df_nba, x='Diferencial_Rebotes', y='Margen_Victoria',
-        color_discrete_sequence=["#C82C2C"],
+        color_discrete_sequence=["#E87518"],
         title="Relación: Ventaja en Rebotes vs. Ventaja en Puntos",
         labels={'Diferencial_Rebotes': 'Diferencia de Rebotes', 
                 'Margen_Victoria': 'Diferencia de Puntos'},
         opacity=0.6
     )
-    # Añadir línea de tendencia para mostrar la incidencia
+    # linea de tendencia para mostrar la incidencia
     fig_scatter.add_vline(x=0, line_dash="dash", line_color="gray")
     fig_scatter.add_hline(y=0, line_dash="dash", line_color="gray")
     
     st.plotly_chart(fig_scatter)
 
-    # Métricas de resumen
+    # metricas de resumen
     correlacion = df_nba['Diferencial_Rebotes'].corr(df_nba['Margen_Victoria'])
 
     st.metric("Coeficiente de Correlación (Incidencia)", f"{correlacion:.2f}")
@@ -169,4 +205,46 @@ with tab2:
     """)
 
     
+
+
+# OO 3
+with tab3:
+    st.header("Objetivo 3: Margen de Victoria y Estabilidad")
+    st.write("Análisis de juegos cerrados, normales y abiertos")
     
+    pcts = df_nba['Tipo_Juego'].value_counts(normalize=True) * 100
+    
+    col1, col2, col3 = st.columns(3)
+    
+    col1.metric("Cerrados", f"{pcts.get('Cerrado', 0):.1f}%")
+    col2.metric("Normales", f"{pcts.get('Normal', 0):.1f}%")
+    col3.metric("Abiertos", f"{pcts.get('Abierto', 0):.1f}%")
+    
+    st.divider() 
+
+    fig = px.scatter(
+        df_nba, 
+        x="Diferencial_Asistencias",         
+        y="Diferencial_Rebotes",          
+        color="Tipo_Juego",
+        size="FG_PCT_Ganador",         
+        marginal_x="violin", 
+        marginal_y="violin", 
+        title="Relación Asistencias vs. Rebotes y su impacto en FG%",
+        labels={"Diferencial_Asistencias": "Asistencias", "Diferencial_Rebotes": "Rebotes", "Tipo_Juego": "Competitividad"},
+        color_discrete_map={
+          "Cerrado": "#1B116A", 
+          "Normal": "#255DB1",   
+          "Abierto": "#5CB6FB",  
+        },
+        size_max=15,
+        opacity=0.7,
+    template="plotly_white",
+    hover_data=["Margen_Victoria"] 
+    )
+
+    st.plotly_chart(fig, use_container_width=True, theme="streamlit", key="grafico_nba_objetivo3")
+
+    st.write("""
+    **Interpretación:** ,,,,
+    """)
