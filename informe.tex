@@ -265,11 +265,11 @@ de un equipo en condiciones normales.
 
 \begin{itemize}
 
-\item{\textbf{Desviación Estándar:}Es la medida que determina cuánto se alejan los datos respecto a la media.Una desviación estándar alta en el porcentaje de tiro de campo indica volatilidad, mientras que una desviación baja indica estabilidad.}
+\item{\textbf{Desviación Estándar:} Es la medida que determina cuánto se alejan los datos respecto a la media.Una desviación estándar alta en el porcentaje de tiro de campo indica volatilidad, mientras que una desviación baja indica estabilidad.}
 
 $$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
 
-\item{\textbf{Coeficiente de Variación:}Es una medida de dispersión relativa que expresa la desviación estándar como un porcentaje de la media. Permite determinar si la dispersión de los datos es significativa.}
+\item{\textbf{Coeficiente de Variación:} Es una medida de dispersión relativa que expresa la desviación estándar como un porcentaje de la media. Permite determinar si la dispersión de los datos es significativa.}
 
 $$CV =  \frac{s}{\bar{x}} \times 100\%$$
 \end{itemize}
@@ -278,7 +278,7 @@ $$CV =  \frac{s}{\bar{x}} \times 100\%$$
 
 \begin{itemize}
 
-\item{\textbf{Correlación:}Cuantifica la fuerza y la dirección de la relación lineal entre dos variables numéricas. Se utiliza para evaluar si existe una dependencia entre variables. Un valor cercano a $+1$ indicaría una relación directa fuerte, mientras que un valor cercano a $0$ indicaría independencia entre las variables analizadas.}
+\item{\textbf{Correlación:} Cuantifica la fuerza y la dirección de la relación lineal entre dos variables numéricas. Se utiliza para evaluar si existe una dependencia entre variables. Un valor cercano a $+1$ indicaría una relación directa fuerte, mientras que un valor cercano a $0$ indicaría independencia entre las variables analizadas.}
 $$r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
 \end{itemize}
 
@@ -294,20 +294,21 @@ variabilidad de los datos suele aumentar.\\
 Se refiere al proceso de limpieza y transformación de los datos brutos
 del archivo NBA.csv.\\
 
-Filtrado Lógico: Se selecciona un subconjunto de datos bajo criterios
-específicos (Temporada 2022).\\
+\textbf{Filtrado Lógico:} Se selecciona un subconjunto de datos bajo
+criterios específicos (Temporada 2022).\\
 
-Depuración: Verificación de valores nulos o atípicos (outliers) que
-podrían alterar los promedios de la temporada.\\
+\textbf{Depuración:} Verificación de valores nulos o atípicos (outliers)
+que podrían alterar los promedios de la temporada.\\
 
-\subsection{Porcentaje de Tiros de Campo $(FG_PCT)$}
+\subsection{Porcentaje de Tiros de Campo **("FG_PCT")**}
 
 Es la estadística general de puntería. Incluye todos los lanzamientos
 realizados durante el juego (tanto de 2 como de 3 puntos), excluyendo
 los tiros libres.\\
 
-Valor Referencial: En la NBA, un 45\% - 47\% se considera el promedio de
-la liga. Superar el 50\% es un indicador de alta eficiencia ofensiva.\\
+\textbf{Valor Referencial:} En la NBA, un 45\% - 47\% se considera el
+promedio de la liga. Superar el 50\% es un indicador de alta eficiencia
+ofensiva.\\
 
 \subsection{Porcentaje de Tiros de Tres Puntos $(FG3_PCT)$}
 
@@ -315,9 +316,9 @@ Mide la eficacia exclusivamente en lanzamientos detrás de la línea de
 tres puntos. Es una variable crítica debido a que tiene una mayor
 volatilidad que los tiros de corta distancia.\\
 
-Valor Referencial: Un 35\% - 37\% es el estándar de un equipo sólido. Un
-porcentaje inferior al 30\% suele correlacionarse con la derrota en el
-baloncesto moderno.\\
+\textbf{Valor Referencial:} Un 35\% - 37\% es el estándar de un equipo
+sólido. Un porcentaje inferior al 30\% suele correlacionarse con la
+derrota en el baloncesto moderno.\\
 
 \subsection{Porcentaje de Tiros Libres $(FT_PCT)$}
 
@@ -325,37 +326,52 @@ Mide la eficiencia en lanzamientos desde la línea de castigo. Aunque no
 depende de la táctica de juego, es un factor de estabilidad emocional
 bajo presión.\\
 
-Valor Referencial: El promedio de la liga ronda el 75\% - 78\%. En
-finales de partido cerrados, este indicador es determinante para
+\textbf{Valor Referencial:} El promedio de la liga ronda el 75\% - 78\%.
+En finales de partido cerrados, este indicador es determinante para
 mantener o remontar un marcador.\\
 
 \subsection{Análisis de la Consistencia y la Volatilidad}
 
-Consistencia: Se define como la capacidad de mantener un rendimiento
-cercano a la media. Estadísticamente, se mide a través de una baja
-desviación estándar.\\
+\textbf{Consistencia:} Se define como la capacidad de mantener un
+rendimiento cercano a la media. Estadísticamente, se mide a través de
+una baja desviación estándar.\\
 
-Volatilidad: Representa la inestabilidad. Un equipo volátil puede tener
-partidos de un 60\% de efectividad y otros de un 30\%, lo que genera
-incertidumbre en el resultado.\\
+\textbf{Volatilidad:} Representa la inestabilidad. Un equipo volátil
+puede tener partidos de un 60\% de efectividad y otros de un 30\%, lo
+que genera incertidumbre en el resultado.\\
 
 \subsection{El Rebote como Factor de Control}
 
-El rebote (REB) representa el momento exacto en el que un equipo
-recupera la posesión y toma las riendas del juego. En este estudio, lo
-tratamos como una variable clave de control. La idea es descubrir si
-existe un umbral de rebotes que asegure estadísticamente la victoria.\\
+El rebote \textbf{(REB)} representa el momento exacto en el que un
+equipo recupera la posesión y toma las riendas del juego. En este
+estudio, lo tratamos como una variable clave de control. La idea es
+descubrir si existe un umbral de rebotes que asegure estadísticamente la
+victoria.\\
 
 \subsection{Margen de competitividad}
 
 Se define como la diferencia absoluta de puntos entre el equipo local y
 el visitante. Permite clasificar los juegos en:\\
 
-Cerrados: Diferencia menor o igual a 5 puntos.\\
-Normales: Diferencia entre 6 y 14 puntos.\\
-Abultados: Diferencia mayor o igual a 15 puntos.\\
+\textbf{Cerrados:} Diferencia menor o igual a 5 puntos.\\
+\textbf{Normales:} Diferencia entre 6 y 14 puntos.\\
+\textbf{Abultados:} Diferencia mayor o igual a 15 puntos.\\
+
+Estos parámetros de rendimiento y valores referenciales de eficacia
+ofensiva han sido extraídos de los estándares estadísticos oficiales de
+\textbf{la National Basketball Association (NBA)} y del repositorio de
+datos analizado \textbf{(``NBA games data'')}.\\
 
 \chapter{Marco Metódico}
+
+En esta sección se presentan las metodologías, procedimientos
+algorítmicos y pruebas estadísticas implementadas para validar los
+objetivos planteados en este estudio sobre el rendimiento deportivo. Se
+detalla el tratamiento técnico de la fuente de datos NBA.csv, las
+técnicas de limpieza y transformación de datos (Data Wrangling) y los
+métodos de análisis descriptivo utilizados para determinar la relación
+entre la eficiencia en el tiro, el dominio de los rebotes y el resultado
+final de los encuentros
 
 \section{Bases metódicas utilizadas en el trabajo de investigación}
 
