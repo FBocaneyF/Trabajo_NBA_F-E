@@ -251,7 +251,7 @@ Para este trabajo, la fuente de información es el dataset  NBA.csv.\
 **Muestra:** Los 542 registros de la temporada 2022 de la NBA. Esta selección garantiza que el análisis sea computacionalmente eficiente y estadísticamente relevante para el contexto actual del baloncesto.\
 
 
-\subsubsection{Procedimiento de Tratamiento de Datos}
+\subsection{Procedimiento de Tratamiento de Datos}
 
 El tratamiento de los datos siguió tres fases fundamentales:\
 

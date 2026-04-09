@@ -300,7 +300,7 @@ criterios específicos (Temporada 2022).\\
 \textbf{Depuración:} Verificación de valores nulos o atípicos (outliers)
 que podrían alterar los promedios de la temporada.\\
 
-\subsection{Porcentaje de Tiros de Campo **("FG_PCT")**}
+\subsection{Porcentaje de Tiros de Campo $(FG_PCT)$}
 
 Es la estadística general de puntería. Incluye todos los lanzamientos
 realizados durante el juego (tanto de 2 como de 3 puntos), excluyendo
@@ -364,34 +364,72 @@ datos analizado \textbf{(``NBA games data'')}.\\
 
 \chapter{Marco Metódico}
 
+\section{Bases metódicas utilizadas en el trabajo de investigación}
+
 En esta sección se presentan las metodologías, procedimientos
 algorítmicos y pruebas estadísticas implementadas para validar los
 objetivos planteados en este estudio sobre el rendimiento deportivo. Se
-detalla el tratamiento técnico de la fuente de datos NBA.csv, las
-técnicas de limpieza y transformación de datos (Data Wrangling) y los
-métodos de análisis descriptivo utilizados para determinar la relación
-entre la eficiencia en el tiro, el dominio de los rebotes y el resultado
-final de los encuentros
+detalla el tratamiento técnico de la fuente de datos \textbf{NBA.csv},
+las técnicas de limpieza y transformación de datos y los métodos de
+análisis descriptivo utilizados para determinar la relación entre la
+eficiencia en el tiro, el dominio de los rebotes y el resultado final de
+los encuentros.\\
 
-\section{Bases metódicas utilizadas en el trabajo de investigación}
+El análisis se ha realizado aplicando un proceso de filtrado lógico para
+extraer únicamente los 542 registros pertenecientes a la temporada
+2022.\\
 
-Desarrollo\\
+\subsection{Enfoque y Diseño de la Investigación}
 
-\subsection{Item 1}
+La investigación es de tipo descriptiva con enfoque cuantitativo. Se
+define como un diseño retrospectivo, debido a que se trabaja con eventos
+deportivos que ya ocurrieron y cuyos datos están almacenados en un
+soporte digital.\\
 
-Descripción\\
+\subsection{Definicion de la Fuente de Datos}
 
-\subsection{Item 2}
+Para este trabajo, la fuente de información es el dataset NBA.csv.\\
 
-Descripción\\
+\textbf{Población:} Está conformada por todos los registros históricos
+de partidos de la NBA contenidos en el dataset.\\
 
-\subsubsection{Item 2.2}
+\textbf{Muestra:} Los 542 registros de la temporada 2022 de la NBA. Esta
+selección garantiza que el análisis sea computacionalmente eficiente y
+estadísticamente relevante para el contexto actual del baloncesto.\\
 
-Descripción\\
+\subsubsection{Procedimiento de Tratamiento de Datos}
 
-\subsection{Item n}
+El tratamiento de los datos siguió tres fases fundamentales:\\
 
-Descripción\\
+\textbf{Limpieza de Datos:} Se verificó la integridad del archivo para
+asegurar que no existieran valores nulos o vacíos en las métricas
+críticas.\\
+
+\textbf{Filtrado Algorítmico:} Se aplicó un filtro lógico para extraer
+exclusivamente los 542 registros correspondientes a la temporada de la
+NBA 2022, eliminando años anteriores que no forman parte de la
+muestra.\\
+
+\textbf{Creación de Variables Computadas:} Se generaron nuevas variables
+para el análisis, tales como el Margen de Victoria y la clasificación de
+los partidos según su Nivel de Competitividad.
+
+\subsection{Técnicas de Análisis Estadístico}
+
+\textbf{Medidas de Tendencia Central:} Cálculo de la media para
+determinar la eficiencia promedio de tiro.\\
+
+\textbf{Medidas de Dispersión:} Aplicación de la Desviación Estándar
+para cuantificar la volatilidad o inestabilidad del rendimiento entre un
+partido y otro.\\
+
+\textbf{Coeficiente de Variación:} Empleado como una medida de
+dispersión relativa para determinar si la variabilidad de los datos es
+significativa en comparación con su media.\\
+
+\textbf{Correlación:} Utilizada para cuantificar la fuerza y dirección
+de la relación entre las variables derivadas, permitiendo evaluar la
+dependencia entre indicadores.
 
 \chapter{Análisis de Resultados}
 
