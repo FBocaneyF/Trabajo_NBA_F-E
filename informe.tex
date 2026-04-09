@@ -170,14 +170,15 @@ Debido a esto, se plantea las siguientes preguntas de investigación:\\
 
 \textbf{1.} ¿Es la derrota en la NBA 2022 consecuencia de una
 ineficiencia constante en el tiro o se debe a una alta volatilidad e
-inestabilidad en el porcentaje de campo (FG\_PCT)?\\
+inestabilidad en el porcentaje de campo?\\
 
-\textbf{2.} ¿En qué medida el superar el umbral del 50\% de efectividad
-en tiros de campo o ganar la batalla de rebotes garantiza
-estadísticamente una victoria en el marcador final?\\
+\textbf{2.} ¿Como incide la capacidad de domino en el rebote sobre la
+victoria en el marcador final?\\
 
-\textbf{3.}¿Cómo se transforma el volumen de puntos anotados (PTS) a
-medida que un equipo escala en sus rangos de eficiencia de tiro?\\
+\textbf{3.}¿Existe una relación en la que los indicadores clave de
+rendimiento (puntos, rebotes y asistencias) afectan a la estabilidad en
+el tiro de campo, y si en los juegos más cerrados tienen un menor
+porcentaje?\\
 
 \section{Justificación}
 
@@ -282,11 +283,13 @@ $$CV =  \frac{s}{\bar{x}} \times 100\%$$
 
 \subsection{Medidas de Relación:}
 
-\begin{itemize}
-
-\item{\textbf{Correlación:} Cuantifica la fuerza y la dirección de la relación lineal entre dos variables numéricas. Se utiliza para evaluar si existe una dependencia entre variables. Un valor cercano a $+1$ indicaría una relación directa fuerte, mientras que un valor cercano a $0$ indicaría independencia entre las variables analizadas.}
-$$r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
-\end{itemize}
+\textbf{Correlación:} Cuantifica la fuerza y la dirección de la relación
+lineal entre dos variables numéricas. Se utiliza para evaluar si existe
+una dependencia entre variables. Un valor cercano a \(+1\) indicaría una
+relación directa fuerte, mientras que un valor cercano a \(0\) indicaría
+independencia entre las variables analizadas.\}
+\[r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}\]
+\textbackslash end\{itemize\}
 
 \subsection{Diferencia de Puntos}
 
@@ -439,20 +442,58 @@ dependencia entre indicadores.
 
 \chapter{Análisis de Resultados}
 
-\{\small Este capítulo presenta los resultados obtenidos al aplicar las
-metodologías descritas en el capítulo anterior, así como del análisis
-estadístico descriptivo de las variables estudiadas y las ventajas y
-desventajas al aplicar dichos tests.\}
+\section{Eficiencia vs Volatilidad}
 
-\section{Presentación de resultados 1}
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Comparativa de Eficiencia y Estabilidad de Tiro}\tabularnewline
+\toprule\noalign{}
+resultado & Media\_FG & Volatilidad\_SD & Coef\_Variacion \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+resultado & Media\_FG & Volatilidad\_SD & Coef\_Variacion \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Derrota & 0.445 & 0.047 & 10.581 \\
+Victoria & 0.493 & 0.053 & 10.845 \\
+\end{longtable}
 
-Descripción\\
+Interpretación: Si la \emph{Volatilidad\_SD} es más alta en las derrotas
+que en las victorias, significa que los equipos pierden por ser
+inestables, no solo por ser malos tiradores.\\
 
-\section{Presentación de resultados 2}
+\section{Dominio del Rebote}
 
-Descripción\\
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
-\section{Presentación de resultados n}
+\textbf{Interpretación:} Se observa una tendencia proporcional a mayor
+cantidad de rebotes capturados la frecuencia de victorias aumenta
+significativamente. Esto sugiere que el dominio del tablero es un factor
+predictivo del éxito, actuando como un mecanismo de compensación ante
+posibles periodos de baja eficiencia en el tiro de campo.\\
+
+\section{Competitividad y Estabilidad}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Rendimiento según el Nivel de Competitividad}\tabularnewline
+\toprule\noalign{}
+competitividad & Punteria\_Media & Asistencias\_Promedio &
+Estabilidad \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+competitividad & Punteria\_Media & Asistencias\_Promedio &
+Estabilidad \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Abultado & 0.488 & 26.347 & 0.067 \\
+Cerrado & 0.467 & 24.932 & 0.044 \\
+Normal & 0.469 & 24.872 & 0.054 \\
+\end{longtable}
 
 Descripción\\
 
