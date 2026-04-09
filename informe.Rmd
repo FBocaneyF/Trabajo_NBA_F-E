@@ -116,29 +116,36 @@ Al centrarse en un año específico, se eliminan ruidos estadísticos provocados
 \end{itemize}
 
 
-\begin{table}[ht]
-\centering
-\caption{Variables consideradas} 
-\resizebox{10cm}{!} {
-\begin{tabular}{ccc}
-  \hline
-\ \ \ \ \ NOMBRE DE LA VARIABLE \\ 
-  \hline
-   VARIABLE 1 \\ 
-VARIABLE 2\\ 
-VARIABLE n\\ 
-   \hline
-\end{tabular}
-}
-\end{table}
-
 \section{Periodo de Referencia}
 
 El conjunto de datos a utilizar para este estudio pertenece al repositorio abierto de Kaggle (“NBA games data”), del cual se tomo como período de referencia los datos de la NBA temporada 2022.\
 
 \section{Variables}
 
-Describir la variable en estudio en el trabajo de investigación
+\begin{table}[ht]
+\centering
+\caption{Variables consideradas en el Estudio} 
+\resizebox{14cm}{!} {
+\begin{tabular}{cll}
+  \hline
+\textbf{VARIABLE} & \textbf{DESCRIPCIÓN} & \textbf{TIPO} \\  
+  \hline
+  FG\_PCT\_home / FG\_PCT\_away & Porcentaje de Tiros de Campo de los equipos Local y Campo & Numérica Continua\\
+  FG3\_PCT\_home / FG3\_PCT\_away & Porcentajes de efectividad en tiros de tres puntos & Númerica Continua\\
+  FT\_PCT\_home / FT\_PCT\_away & Porcentaje de efectividad en tiros libres & Númerica Continua\\
+  REB\_home / REB\_away & Cantidad total de rebotes capturados por cada equipo & Númerica Discreta\\
+  AST\_home / AST\_away & Asistencias realizadas por cada equipo & Númerica Discreta\\
+  PTS\_home / PTS\_away & Puntos totales anotados local y campo & Númerica Discreta\\
+  HOME\_TEAM\_WINS & Indica cual equipo gano y cual perdio en cada regsitro & Categórica Discreta\\
+  Margen\_Victoria & Variable derivada que define la magnitud del éxito y la categoria del juego & Númerica Discreta\\
+  Diferencial\_Asistencias & Variable derivada utilizada para el análisis de estabilidad & Númerica Discreta\\
+  Diferencial\_Rebotes & Variable derivada utilizada para medir la incidencia del rebote en la victoria & Númerica Discreta\\
+  Tipo\_Juego & Creada para clasificar los partidos según su nivel de competitividad & Categórica Discreta\\
+   \hline
+\end{tabular}
+}
+\end{table}
+
 
 \chapter{Marco Teórico}
 
