@@ -144,3 +144,88 @@ def page_volumen (df_filtrada):
 
     st.plotly_chart(fig, use_container_width=True)
 
+#tercera parte sobre los porcentajes de tiro
+def page_FG(df_filtrada):
+    st.title("🎯 Eficiencia vs Volatilidad")
+    st.markdown("Análisis de la Ineficiencia vs Volatilidad en Derrotas")
+    #pt1
+    df_filtrada['FG_PCT_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 0, 
+                                  df_filtrada['FG_PCT_home'], 
+                                  df_filtrada['FG_PCT_away'])
+
+    df_filtrada['FG3_PCT_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 0, 
+                                   df_filtrada['FG3_PCT_home'], 
+                                   df_filtrada['FG3_PCT_away'])
+
+    df_filtrada['FT_PCT_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 0, 
+                                  df_filtrada['FT_PCT_home'], 
+                                  df_filtrada['FT_PCT_away'])
+    media_perdidas = df_filtrada['FG_PCT_Perdedor'].mean()
+    desviacion_perdidas = df_filtrada['FG_PCT_Perdedor'].std()
+    # CV
+    volatilidad = (desviacion_perdidas / media_perdidas) * 100
+
+    col1, col2 = st.columns(2)
+    col1.metric("Eficiencia Media (FG%)", f"{media_perdidas:.2%}")
+    col2.metric("Índice de Volatilidad", f"{volatilidad:.2f}%")
+
+    st.subheader("Este análisis identifica si las derrotas son constantes o por picos de rendimiento.")
+    st.divider()
+
+    # grafico
+    df_plot = df_filtrada[['FG_PCT_Perdedor', 'FG3_PCT_Perdedor', 'FT_PCT_Perdedor']].melt(
+    var_name='Tipo de Tiro', 
+    value_name='Porcentaje'
+     )
+
+# Cambio nombre
+    nombres = {
+    'FG_PCT_Perdedor': 'Campo (FG%)',
+    'FG3_PCT_Perdedor': 'Triples (FG3%)',
+    'FT_PCT_Perdedor': 'Libres (FT%)'
+    }
+
+    df_plot['Tipo de Tiro'] = df_plot['Tipo de Tiro'].map(nombres)
+
+
+    paleta_rosa_neon = ['#FF007F', '#FF66B2', '#FFB3D9'] 
+
+    fig = px.box(
+    df_plot, 
+    x="Tipo de Tiro", 
+    y="Porcentaje", 
+    color="Tipo de Tiro",
+    title="Análisis de Eficiencia en Derrotas",
+    labels={'Porcentaje': 'Efectividad (%)'},
+    color_discrete_sequence=paleta_rosa_neon,
+    points="outliers",           
+    hover_data={'Porcentaje': ':.1%'} 
+    )
+
+    fig.update_layout(
+    template="plotly_dark",
+    font_family="Roboto, Arial", 
+    title_font_size=24,
+    showlegend=False,
+    xaxis=dict(
+        showgrid=False,
+        title_font_size=18,
+        tickfont_size=16
+    ),
+    yaxis=dict(
+        tickformat='.0%', 
+        gridcolor='#444444', 
+        zeroline=False,
+        range=[0, 1.0], 
+        title_font_size=18,
+        tickfont_size=14
+    ),
+    height=600,
+    margin=dict(l=50, r=50, t=80, b=50), 
+    paper_bgcolor='rgba(15, 15, 15, 0.9)', 
+    plot_bgcolor='rgba(10, 10, 10, 0)'
+)
+    #referencia en el 50% 
+    fig.add_hline(y=0.50, line_dash="dot", line_color="#888888", opacity=0.5)
+
+    st.plotly_chart(fig, use_container_width=True)
