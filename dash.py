@@ -229,3 +229,87 @@ def page_FG(df_filtrada):
     fig.add_hline(y=0.50, line_dash="dot", line_color="#888888", opacity=0.5)
 
     st.plotly_chart(fig, use_container_width=True)
+
+def page_reb(df_filtrada):
+    st.title("🛡️ Dominio del Rebote")
+    st.markdown("Análisis de los rebotes y puentos anotados")
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Promedio Rebotes Ganador", f"{avg_ganador:.1f}")
+    col2.metric("Promedio Rebotes Perdedor", f"{avg_perdedor:.1f}")
+    col3.metric("% Victorias con +Rebotes", f"{porcentaje_exito:.1f}%")
+
+    st.divider()
+    st.subheader("Correlación: Rebotes vs. Puntos Anotados")
+    fig_scatter = px.scatter(
+    df_nba, 
+    x='Diferencial_Rebotes', 
+    y='Margen_Victoria',
+    color='Margen_Victoria',  
+    color_continuous_scale=['#333333', '#FF007B'], # De gris oscuro a naranja brillante
+    trendline="ols", # Línea de Regresión Lineal (Mínimos Cuadrados)
+    trendline_color_override="#FFFFFF", # Línea blanca para que resalte
+    title="🏀 Impacto de los Rebotes en el Marcador Final",
+    labels={
+        'Diferencial_Rebotes': 'Ventaja en Rebotes', 
+        'Margen_Victoria': 'Margen de Victoria (PTS)'
+    },
+    opacity=0.7,
+    hover_data=['SEASON'] 
+)
+
+    fig_scatter.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    paper_bgcolor="rgba(0,0,0,0)",
+    font_color="white",
+    title_font_size=24,
+    xaxis=dict(showgrid=False, zeroline=False),
+    yaxis=dict(showgrid=True, gridcolor='#444444', zeroline=False),
+    coloraxis_showscale=False # Ocultamos la barra de color para un look más limpio
+    )
+
+    fig_scatter.add_vline(x=0, line_dash="dot", line_color="#888888", line_width=1)
+    fig_scatter.add_hline(y=0, line_dash="dot", line_color="#888888", line_width=1)
+
+    fig_scatter.add_annotation(x=15, y=20, text="Dominio Total", showarrow=False, font_color="#FF4B00")
+    fig_scatter.add_annotation(x=-15, y=-20, text="Déficit", showarrow=False, font_color="#888888")
+
+    st.plotly_chart(fig_scatter, use_container_width=True)
+
+
+#~ ~ ~ ~ ~ ~
+#(NAVEGACION)
+#~ ~ ~ ~ ~ ~
+
+def main():
+    
+      st.sidebar.title("🏀 NBA Navigation")
+      st.sidebar.markdown("Escoger...")
+
+      #LISTA
+      pages = {
+          "🗑️Home": page_inicio,
+          "📊Métricas por temporada": page_volumen,
+          "🎯 Eficiencia vs Volatilidad": page_FG,
+          "🛡️ Dominio del Rebote": page_reb
+          }
+
+      #MENU
+      selection = st.sidebar.radio("Ir a:", list(pages.keys()))
+
+      Tipo_selecionado= st.sidebar.multiselect(
+          "Seleccione un tipo de juego",
+          options=['Cerrado','Normal','Abierto'],
+          default=['Cerrado','Normal','Abierto'],
+          )
+      
+      if Tipo_selecionado:
+          df_filtrado= df_nba[df_nba['Tipo_Juego'].isin(Tipo_selecionado)]
+      else:
+          df_filtrado= df_nba
+      
+
+      pages[selection](df_filtrado)
+
+if __name__ == "__main__":
+    main()
