@@ -90,3 +90,57 @@ def page_inicio (df_filtrada):
     ti3.metric("Asistencias", f"{df_filtrada['AST_home'].sum() + df_filtrada['AST_away'].sum():,.0f}")
     ti4.metric("Partidos", f"{len(df_filtrada)}")
     st.info("Desde el menú de opciones seleccione su siguiente perspectiva")
+
+#segundo un grafico que muestre la ccantidad a traves de los años
+def page_volumen (df_filtrada):
+    st.title("Métricas por temporada")
+    st.markdown("Análisis de metricas anuales y si se han visto afectadas")
+
+    df_nba['puntos_total'] = df_filtrada['PTS_home'] + df_filtrada['PTS_away']
+    df_nba['ast_total'] = df_filtrada['REB_home'] + df_filtrada['REB_away']
+    df_nba['reb_total'] = df_filtrada['AST_home'] + df_filtrada['AST_away']
+    
+    # Grafico
+    evolucion = df_nba.groupby('SEASON')[['puntos_total', 'ast_total', 'reb_total']].sum().reset_index()
+    
+    # Gráfico de área con los tres
+    # 2. Aseguramos que SEASON sea tratado como texto o entero para evitar el "2,008"
+    evolucion['SEASON'] = evolucion['SEASON'].astype(str)
+
+# 3. Crear el gráfico con Plotly
+    fig = px.area(
+    evolucion, 
+    x='SEASON', 
+    y=['puntos_total', 'ast_total', 'reb_total'],
+    title="🏀 Evolución Histórica",
+    labels={'value': 'Total Acumulado', 'SEASON': 'Temporada', 'variable': 'Métrica'},
+    color_discrete_map={
+        'puntos_total': '#FF007F',  
+        'ast_total': '#FF66B2',    
+        'reb_total': "#FFB3D9"      
+    }
+)
+
+
+    fig.update_layout(
+    font_family="Arial",
+    title_font_size=22,
+    hovermode="x unified",  
+    plot_bgcolor="rgba(0,0,0,0)",
+    paper_bgcolor="rgba(0,0,0,0)",
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    )
+)
+
+    fig.update_layout(barmode='overlay') 
+    fig.update_traces(stackgroup=None)
+    fig.update_xaxes(showgrid=False, type='category') 
+    fig.update_yaxes(gridcolor='#EEE')
+
+    st.plotly_chart(fig, use_container_width=True)
+
