@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  9 APR 2026 18:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  10 APR 2026 13:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,7 +1150,7 @@ LaTeX Info: Redefining \% on input line 443.
 [11]
 Cap\'{\i }tulo 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 463--466
+Underfull \hbox (badness 10000) in paragraph at lines 463--470
 
  []
 
@@ -1159,68 +1159,66 @@ pt>
 File: informe_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-3-1.pdf  used
- on input line 469.
+ on input line 473.
 (pdftex.def)             Requested size: 371.30594pt x 257.94225pt.
 [12
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 471--476
+Underfull \hbox (badness 10000) in paragraph at lines 475--480
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-
- []
-
-LaTeX Info: Redefining \. on input line 500.
-LaTeX Info: Redefining \% on input line 500.
+LaTeX Info: Redefining \. on input line 510.
+LaTeX Info: Redefining \% on input line 510.
 [13 <./informe_files/figure-latex/unnamed-chunk-3-1.pdf>]
+LaTeX Info: Redefining \. on input line 511.
+LaTeX Info: Redefining \% on input line 511.
+[14]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
  []
 
-[14
-
-]
-Ap\'{e}ndice A.
 [15
 
 ]
-Ap\'{e}ndice B.
+Ap\'{e}ndice A.
 [16
+
+]
+Ap\'{e}ndice B.
+[17
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[17
+[18
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 9.
@@ -1237,11 +1235,11 @@ Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: 12299671A922E82A56677BBC8C8169DD;7449.
  ) 
 Here is how much of TeX's memory you used:
- 20610 strings out of 474222
- 340719 string characters out of 5748733
+ 20609 strings out of 474222
+ 340702 string characters out of 5748733
  1937975 words of memory out of 5000000
- 42458 multiletter control sequences out of 15000+600000
- 568730 words of font info for 79 fonts, out of 8000000 for 9000
+ 42457 multiletter control sequences out of 15000+600000
+ 568384 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,433b,780s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1255,12 +1253,11 @@ e1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on informe.pdf (21 pages, 473726 bytes).
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on informe.pdf (22 pages, 464392 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
+ 374 PDF objects out of 1000 (max. 8388607)
  314 compressed objects within 4 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 62 named destinations out of 1000 (max. 500000)
  296 words of extra memory for PDF output out of 10000 (max. 10000000)
 

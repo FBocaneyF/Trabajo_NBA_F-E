@@ -82,7 +82,7 @@ A través de herramientas de estadística y computación, este trabajo explora c
 
 En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan consistente pueda ser ese rendimiento bajo presión. El análisis de los 542 registros de la NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una irregularidad drástica en momentos clave?\
 
-El problema radica en que el porcentaje de tiro (FG_PCT) suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el 50% de efectividad de campo o dominar la batalla de rebotes, actúan como predictores determinantes de la victoria.\
+El problema radica en que el porcentaje de tiro (FG\_PCT) suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el 50% de efectividad de campo o dominar la batalla de rebotes, actúan como predictores determinantes de la victoria.\
 
 Debido a esto, se plantea las siguientes preguntas de investigación:\
 
@@ -191,20 +191,20 @@ Se refiere al proceso de limpieza y transformación de los datos brutos del arch
 
 **Depuración:** Verificación de valores nulos o atípicos (outliers) que podrían alterar los promedios de la temporada.\
 
-\subsection{Porcentaje de Tiros de Campo $(FG_PCT)$}
+\subsection{Porcentaje de Tiros de Campo (FG\_PCT)}
 
 Es la estadística general de puntería. Incluye todos los lanzamientos realizados durante el juego (tanto de 2 como de 3 puntos), excluyendo los tiros libres.\
 
 **Valor Referencial:** En la NBA, un 45% - 47% se considera el promedio de la liga. Superar el 50% es un indicador de alta eficiencia ofensiva.\
 
-\subsection{Porcentaje de Tiros de Tres Puntos $(FG3_PCT)$}
+\subsection{Porcentaje de Tiros de Tres Puntos (FG3\_PCT)}
 
 Mide la eficacia exclusivamente en lanzamientos detrás de la línea de tres puntos. Es una variable crítica debido a que tiene una mayor volatilidad que los tiros de corta distancia.\
 
 **Valor Referencial:** Un 35% - 37% es el estándar de un equipo sólido. Un porcentaje inferior al 30% suele correlacionarse con la derrota en el baloncesto moderno.\
 
 
-\subsection{Porcentaje de Tiros Libres $(FT_PCT)$}
+\subsection{Porcentaje de Tiros Libres (FT\_PCT)}
 
 Mide la eficiencia en lanzamientos desde la línea de castigo. Aunque no depende de la táctica de juego, es un factor de estabilidad emocional bajo presión.\
 
@@ -305,14 +305,15 @@ nba_clean <- nba_df %>%
  
 ```
 ```{r}
+
 # Comparar Media y Desviación Estándar por Resultado
 
 obj1_tabla <- nba_clean %>%
-  group_by(Resultado) %>%
+  group_by(resultado) %>%
   summarise(
     Media_FG = mean(FG_PCT_home, na.rm = TRUE),
     Volatilidad_SD = sd(FG_PCT_home, na.rm = TRUE),
-    CV = (Volatilidad_SD / Media_FG) * 100
+    Coef_Variacion = (Volatilidad_SD / Media_FG) * 100
     )
   
 kable(obj1_tabla, caption = "Comparativa de Eficiencia y Estabilidad de Tiro", digits = 3)
