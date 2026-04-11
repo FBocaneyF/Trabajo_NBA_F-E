@@ -284,6 +284,124 @@ def page_reb(df_filtrada):
     st.plotly_chart(fig_scatter, use_container_width=True)
 
 
+def page_jueg(df_filtrada):
+   
+    st.title("📈 Competitividad y Estabilidad")
+    st.markdown("Análisis de juegos cerrados, normales y abiertos y las asistencias y rebotes")
+
+    pcts = df_nba['Tipo_Juego'].value_counts(normalize=True) * 100
+    conteos = df_nba['Tipo_Juego'].value_counts()
+ #ASISTENCIA
+    df_filtrada['AST_Ganador'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['AST_home'], df_filtrada['AST_away'])
+    df_filtrada['AST_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['AST_away'], df_filtrada['AST_home'])
+ #REBOTES
+    df_filtrada['REB_Ganador'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['REB_home'], df_filtrada['REB_away'])
+    df_filtrada['REB_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['REB_away'], df_filtrada['REB_home'])
+
+ #DIF# REBOTES
+    df_filtrada['Diferencial_Rebotes'] = df_filtrada['REB_Ganador'] - df_filtrada['REB_Perdedor']
+    df_filtrada['Diferencial_Asistencias'] = df_filtrada['AST_Ganador'] - df_filtrada['AST_Perdedor']
+
+ #FG ganador
+    df_filtrada['FG_PCT_Ganador'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, 
+                                  df_filtrada['FG_PCT_home'], 
+                                  df_filtrada['FG_PCT_away'])
+
+
+
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric(
+    label="Cerrados", 
+    value=f"{pcts.get('Cerrado', 0):.1f}%", 
+    delta=f"{conteos.get('Cerrado', 0)} partidos",
+    delta_color="off"  # "off" para que el número sea gris y no verde/rojo
+ )
+
+    col2.metric(
+    label="Normales", 
+    value=f"{pcts.get('Normal', 0):.1f}%", 
+    delta=f"{conteos.get('Normal', 0)} partidos",
+    delta_color="off"
+ )
+
+    col3.metric(
+    label="Abiertos", 
+    value=f"{pcts.get('Abierto', 0):.1f}%", 
+    delta=f"{conteos.get('Abierto', 0)} partidos",
+    delta_color="off"
+ )
+    st.divider() 
+
+    #grafico
+
+    fig = px.scatter(
+    df_filtrada,
+    x="Diferencial_Asistencias", 
+    y="Diferencial_Rebotes", 
+    color="Tipo_Juego",
+    size="FG_PCT_Ganador", 
+    color_discrete_map={
+    "Cerrado": "#FFB3D9",   
+    "Normal":  "#FF66B2",   
+    "Abierto": "#FF007F"    
+     },
+    size_max=18, 
+    opacity=0.6, # Un poco más transparente para ver la superposición
+    
+    marginal_y="violin", 
+    
+    title="🏀 El Tridente de Triunfo: Asistencias, Rebotes y Efectividad (FG%)",
+    labels={
+        "Diferencial_Asistencias": "Diferencial Asistencias", 
+        "Diferencial_Rebotes": "Diferencial Rebotes", 
+        "Tipo_Juego": "Competitividad",
+        "FG_PCT_Ganador": "Efectividad (FG%)"
+    },
+    
+    hover_data={
+        "SEASON": True,
+        "Margen_Victory": "+{:.0f} pts", # Formateo bonito
+        "FG_PCT_Ganador": ":.1%",
+        # Ocultamos variables redundantes del hover
+        "Tipo_Juego": False,
+        "Diferencial_Asistencias": False,
+        "Diferencial_Rebotes": False
+    }
+)
+
+
+    fig.update_layout(
+    template="plotly_dark", 
+    font_family="Impact, Roboto, Arial", 
+    title_font_size=26,
+    
+    # Leyenda horizontal arriba, muy pro
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1,
+        title_text="" 
+    ),
+    
+    # Fondo con ligera transparencia ('glassmorphism')
+    paper_bgcolor='rgba(10, 10, 10, 0.9)', 
+    plot_bgcolor='rgba(0, 0, 0, 0)',
+    
+    xaxis=dict(showgrid=False, zerolinecolor='#444444'), # Línea cero discreta
+    yaxis=dict(showgrid=True, gridcolor='#333333', zerolinecolor='#444444')
+)
+
+# 4. Ajuste de los violines marginales (para que no distraigan)
+    fig.update_traces(marker=dict(line=dict(width=0.5, color='white')), selector=dict(mode='markers'))
+    fig.update_traces(opacity=0.5, selector=dict(type='violin'))
+
+
+    st.plotly_chart(fig, use_container_width=True, key="grafico_nba_final")
+
+
 #~ ~ ~ ~ ~ ~
 #(NAVEGACION)
 #~ ~ ~ ~ ~ ~
@@ -298,7 +416,9 @@ def main():
           "🗑️Home": page_inicio,
           "📊Métricas por temporada": page_volumen,
           "🎯 Eficiencia vs Volatilidad": page_FG,
-          "🛡️ Dominio del Rebote": page_reb
+          "🛡️ Dominio del Rebote": page_reb,
+          "📈 Competitividad y Estabilidad": page_jueg
+
           }
 
       #MENU
