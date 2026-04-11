@@ -1,0 +1,15 @@
+# 1. Usar una imagen de Python ligera
+FROM python:3.10-slim
+
+# 2. Crear una carpeta para la app
+WORKDIR /app
+
+# 3. Copiar el archivo de requisitos e instalar librerías
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 4. Copiar todo el código a la caja
+COPY . .
+
+# 5. El comando para arrancar (usando Gunicorn)
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:server"]
