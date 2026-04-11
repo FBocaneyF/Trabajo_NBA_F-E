@@ -135,7 +135,7 @@ def page_volumen (df_filtrada):
 #tercera parte sobre los porcentajes de tiro
 def page_FG(df_filtrada):
     st.title("🎯 Eficiencia vs Volatilidad")
-    st.markdown("Análisis de la Ineficiencia vs Volatilidad en Derrotas")
+    st.markdown("Análisis de la eficiencia vs Volatilidad en Derrotas")
     #pt1
     df_filtrada['FG_PCT_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 0, 
                                   df_filtrada['FG_PCT_home'], 
@@ -282,6 +282,12 @@ def page_reb(df_filtrada):
     fig_scatter.add_annotation(x=15, y=20, text="Dominio Total", showarrow=False, font_color="#00C8FF")
     
     st.plotly_chart(fig_scatter, use_container_width=True)
+
+    st.divider()
+
+    correlacion = df_filtrada['Diferencial_Rebotes'].corr(df_filtrada['Margen_Victoria'])
+
+    st.metric("Coeficiente de Correlación (Incidencia)", f"{correlacion:.2f}")
 
 
 def page_jueg(df_filtrada):
