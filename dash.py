@@ -24,32 +24,20 @@ def cargar_y_limpiar_datos():
 
 df_nba = cargar_y_limpiar_datos()
 
-
-
-    #pt2 defino ganadores y perdedores en los pts y rebotes
- # REBOTES
-df_nba['REB_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_home'], df_nba['REB_away'])
-df_nba['REB_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['REB_away'], df_nba['REB_home'])
+ #pt2 defino ganadores y perdedores en los pts y rebotes
 
 # PUNTOS
-df_nba['PTS_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_home'], df_nba['PTS_away'])
-df_nba['PTS_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_away'], df_nba['PTS_home'])
+df_nba['PTS_ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_home'], df_nba['PTS_away'])
+df_nba['PTS_perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['PTS_away'], df_nba['PTS_home'])
 
-    # Diff de Rebotes y pts (G - P)
-df_nba['Diferencial_Rebotes'] = df_nba['REB_Ganador'] - df_nba['REB_Perdedor']
-df_nba['Margen_Victoria'] = df_nba['PTS_Ganador'] - df_nba['PTS_Perdedor']
-
-avg_ganador = df_nba['REB_Ganador'].mean()
-avg_perdedor = df_nba['REB_Perdedor'].mean()
-partidos_mas_rebotes_ganan  = len(df_nba[df_nba['Diferencial_Rebotes'] > 0])
-porcentaje_exito = (partidos_mas_rebotes_ganan / len(df_nba)) * 100
+df_nba['Margen_Victory'] = df_nba['PTS_ganador'] - df_nba['PTS_perdedor']
 
  #pt3 definir las clasificaciones
  # condiciones lógicas 
 condiciones = [
-    (df_nba['Margen_Victoria'] <= 5),
-    (df_nba['Margen_Victoria'] > 5) & (df_nba['Margen_Victoria'] < 15),
-    (df_nba['Margen_Victoria'] >= 15)
+    (df_nba['Margen_Victory'] <= 5),
+    (df_nba['Margen_Victory'] > 5) & (df_nba['Margen_Victory'] < 15),
+    (df_nba['Margen_Victory'] >= 15)
  ]
 
  # nombres de categorías correspondientes a condición
@@ -234,6 +222,26 @@ def page_reb(df_filtrada):
     st.title("🛡️ Dominio del Rebote")
     st.markdown("Análisis de los rebotes y puentos anotados")
 
+ #pt2 defino ganadores y perdedores en los pts y rebotes
+ # REBOTES
+    df_filtrada['REB_Ganador'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['REB_home'], df_filtrada['REB_away'])
+    df_filtrada['REB_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['REB_away'], df_filtrada['REB_home'])
+
+# PUNTOS
+    df_filtrada['PTS_Ganador'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['PTS_home'], df_filtrada['PTS_away'])
+    df_filtrada['PTS_Perdedor'] = np.where(df_filtrada['HOME_TEAM_WINS'] == 1, df_filtrada['PTS_away'], df_filtrada['PTS_home'])
+
+    # Diff de Rebotes y pts (G - P)
+    df_filtrada['Diferencial_Rebotes'] = df_filtrada['REB_Ganador'] - df_filtrada['REB_Perdedor']
+    df_filtrada['Margen_Victoria'] = df_filtrada['PTS_Ganador'] - df_filtrada['PTS_Perdedor']
+
+    avg_ganador = df_filtrada['REB_Ganador'].mean()
+    avg_perdedor = df_filtrada['REB_Perdedor'].mean()
+    partidos_mas_rebotes_ganan  = len(df_filtrada[df_filtrada['Diferencial_Rebotes'] > 0])
+    porcentaje_exito = (partidos_mas_rebotes_ganan / len(df_filtrada)) * 100
+
+
+
     col1, col2, col3 = st.columns(3)
     col1.metric("Promedio Rebotes Ganador", f"{avg_ganador:.1f}")
     col2.metric("Promedio Rebotes Perdedor", f"{avg_perdedor:.1f}")
@@ -242,13 +250,13 @@ def page_reb(df_filtrada):
     st.divider()
     st.subheader("Correlación: Rebotes vs. Puntos Anotados")
     fig_scatter = px.scatter(
-    df_nba, 
+    df_filtrada, 
     x='Diferencial_Rebotes', 
     y='Margen_Victoria',
     color='Margen_Victoria',  
-    color_continuous_scale=['#333333', '#FF007B'], # De gris oscuro a naranja brillante
-    trendline="ols", # Línea de Regresión Lineal (Mínimos Cuadrados)
-    trendline_color_override="#FFFFFF", # Línea blanca para que resalte
+    color_continuous_scale=['#333333', '#FF007B'], 
+    trendline="ols", # Línea de Regresión Lineal 
+    trendline_color_override="#FFFFFF", 
     title="🏀 Impacto de los Rebotes en el Marcador Final",
     labels={
         'Diferencial_Rebotes': 'Ventaja en Rebotes', 
@@ -271,9 +279,8 @@ def page_reb(df_filtrada):
     fig_scatter.add_vline(x=0, line_dash="dot", line_color="#888888", line_width=1)
     fig_scatter.add_hline(y=0, line_dash="dot", line_color="#888888", line_width=1)
 
-    fig_scatter.add_annotation(x=15, y=20, text="Dominio Total", showarrow=False, font_color="#FF4B00")
-    fig_scatter.add_annotation(x=-15, y=-20, text="Déficit", showarrow=False, font_color="#888888")
-
+    fig_scatter.add_annotation(x=15, y=20, text="Dominio Total", showarrow=False, font_color="#00C8FF")
+    
     st.plotly_chart(fig_scatter, use_container_width=True)
 
 
