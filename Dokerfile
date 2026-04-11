@@ -11,5 +11,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 4. Copiar todo el código a la caja
 COPY . .
 
-# 5. El comando para arrancar (usando Gunicorn)
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:server"]
+CMD ["streamlit", "run", "dash.py", "--server.port", "8080", "--server.address", "0.0.0.0"]
