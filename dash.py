@@ -46,17 +46,6 @@ categorias = ['Cerrado', 'Normal', 'Abierto']
  #  la nueva columna 
 df_nba['Tipo_Juego'] = np.select(condiciones, categorias, default='Sin clasificar')
 
- #ASISTENCIA
-df_nba['AST_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['AST_home'], df_nba['AST_away'])
-df_nba['AST_Perdedor'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, df_nba['AST_away'], df_nba['AST_home'])
-
-df_nba['Diferencial_Asistencias'] = df_nba['AST_Ganador'] - df_nba['AST_Perdedor']
-
- #FG ganador
-
-df_nba['FG_PCT_Ganador'] = np.where(df_nba['HOME_TEAM_WINS'] == 1, 
-                                  df_nba['FG_PCT_home'], 
-                                  df_nba['FG_PCT_away'])
 
 
 # PRIMERO, la bienvenida y algunos datos.
