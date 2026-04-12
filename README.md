@@ -54,3 +54,4 @@ Evaluar la incidencia de la estabilidad en el tiro y la relación de variables d
 **3.** Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad en los indicadores clave de rendimiento y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.
 
 
+Dashboard con streamlit: https://trabajo-nba-f-e-97.onrender.com/
