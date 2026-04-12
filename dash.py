@@ -80,10 +80,15 @@ def page_inicio(df_filtrada):
 
     st.subheader("Totales de la temporada")
     ti1, ti2, ti3, ti4 = st.columns(4)
-    ti1.metric("Puntos", f"{df_filtrada['PTS_home'].sum() + df_filtrada['PTS_away'].sum():,.0f}")
-    ti2.metric("Rebotes", f"{df_filtrada['REB_home'].sum() + df_filtrada['REB_away'].sum():,.0f}")
-    ti3.metric("Asistencias", f"{df_filtrada['AST_home'].sum() + df_filtrada['AST_away'].sum():,.0f}")
-    ti4.metric("Partidos", f"{len(df_filtrada)}")
+    pts_total = f"{df_filtrada['PTS_home'].sum() + df_filtrada['PTS_away'].sum():,.0f}".replace(",", ".")
+    reb_total = f"{df_filtrada['REB_home'].sum() + df_filtrada['REB_away'].sum():,.0f}".replace(",", ".")
+    ast_total = f"{df_filtrada['AST_home'].sum() + df_filtrada['AST_away'].sum():,.0f}".replace(",", ".")
+    partidos = f"{len(df_filtrada):,.0f}".replace(",", ".")
+
+    ti1.metric("Puntos", pts_total)
+    ti2.metric("Rebotes", reb_total)
+    ti3.metric("Asistencias", ast_total)
+    ti4.metric("Partidos", partidos)
     st.info("Desde el menú de opciones seleccione su siguiente perspectiva")
 
 def page_volumen(df_filtrada):
@@ -93,7 +98,7 @@ def page_volumen(df_filtrada):
     evolucion = df_filtrada.groupby('SEASON')[['puntos_total', 'ast_total', 'reb_total']].sum().reset_index()
     evolucion['SEASON'] = evolucion['SEASON'].astype(str)
 
-    fig = px.area(
+    fig = px.line(
         evolucion, 
         x='SEASON', 
         y=['puntos_total', 'ast_total', 'reb_total'],
@@ -106,7 +111,14 @@ def page_volumen(df_filtrada):
         }
     )
 
+    fig.update_traces(
+        mode='lines+markers',
+        line=dict(width=5),
+        marker=dict(size=10, line=dict(width=2, color='white'))
+    )
+
     fig.update_layout(
+        template="plotly_dark",
         font_family="Arial",
         title_font_size=22,
         hovermode="x unified",  
@@ -118,13 +130,10 @@ def page_volumen(df_filtrada):
             y=1.02,
             xanchor="right",
             x=1
-        )
+        ),
+        xaxis=dict(showgrid=False, type='category'),
+        yaxis=dict(gridcolor='#333333', tickformat=',.0f')
     )
-
-    fig.update_layout(barmode='overlay') 
-    fig.update_traces(stackgroup=None)
-    fig.update_xaxes(showgrid=False, type='category') 
-    fig.update_yaxes(gridcolor='#EEE')
 
     st.plotly_chart(fig, use_container_width=True)
 
@@ -138,8 +147,11 @@ def page_FG(df_filtrada):
     volatilidad = (desviacion_perdidas / media_perdidas) * 100 if media_perdidas > 0 else 0
 
     col1, col2 = st.columns(2)
-    col1.metric("Eficiencia Media (FG%)", f"{media_perdidas:.2%}")
-    col2.metric("Índice de Volatilidad", f"{volatilidad:.2f}%")
+    val_eficiencia = f"{media_perdidas:.2%}".replace('.', ',')
+    val_volatilidad = f"{volatilidad:.2f}".replace('.', ',')
+
+    col1.metric("Eficiencia Media (FG%)", val_eficiencia)
+    col2.metric("Índice de Volatilidad", f"{val_volatilidad}%")
 
     st.subheader("Este análisis identifica si las derrotas son constantes o por picos de rendimiento.")
     st.divider()
@@ -211,9 +223,13 @@ def page_reb(df_filtrada):
     porcentaje_exito = (partidos_mas_rebotes_ganan / total_partidos) * 100 if total_partidos > 0 else 0
 
     col1, col2, col3 = st.columns(3)
-    col1.metric("Promedio Rebotes Ganador", f"{avg_ganador:.1f}")
-    col2.metric("Promedio Rebotes Perdedor", f"{avg_perdedor:.1f}")
-    col3.metric("% Victorias con +Rebotes", f"{porcentaje_exito:.1f}%")
+    val_avg_ganador = f"{avg_ganador:.1f}".replace('.', ',')
+    val_avg_perdedor = f"{avg_perdedor:.1f}".replace('.', ',')
+    val_pct_exito = f"{porcentaje_exito:.1f}".replace('.', ',')
+
+    col1.metric("Promedio Rebotes Ganador", val_avg_ganador)
+    col2.metric("Promedio Rebotes Perdedor", val_avg_perdedor)
+    col3.metric("% Victorias con +Rebotes", f"{val_pct_exito}%")
 
     st.divider()
     st.subheader("Correlación: Rebotes vs. Puntos Anotados")
@@ -265,23 +281,27 @@ def page_jueg(df_filtrada):
     conteos = df_filtrada['Tipo_Juego'].value_counts()
 
     col1, col2, col3 = st.columns(3)
+    val_cerrado = f"{pcts.get('Cerrado', 0):.1f}".replace('.', ',')
+    val_normal = f"{pcts.get('Normal', 0):.1f}".replace('.', ',')
+    val_abierto = f"{pcts.get('Abierto', 0):.1f}".replace('.', ',')
+
     col1.metric(
         label="Cerrados", 
-        value=f"{pcts.get('Cerrado', 0):.1f}%", 
+        value=f"{val_cerrado}%", 
         delta=f"{conteos.get('Cerrado', 0)} partidos",
         delta_color="off" 
     )
 
     col2.metric(
         label="Normales", 
-        value=f"{pcts.get('Normal', 0):.1f}%", 
+        value=f"{val_normal}%", 
         delta=f"{conteos.get('Normal', 0)} partidos",
         delta_color="off"
     )
 
     col3.metric(
         label="Abiertos", 
-        value=f"{pcts.get('Abierto', 0):.1f}%", 
+        value=f"{val_abierto}%", 
         delta=f"{conteos.get('Abierto', 0)} partidos",
         delta_color="off"
     )
@@ -357,6 +377,19 @@ def page_tl(df_filtrada):
         hide_index=True 
     )
 
+    @st.cache_data
+    def convertir_df(df):
+    
+        return df.to_csv(index=False).encode('utf-8')
+
+    csv = convertir_df(df_filtrada)
+
+    st.download_button(
+        label="⬇️ Descargar datos filtrados (CSV)",
+        data=csv,
+        file_name='datos_nba_filtrados.csv',
+        mime='text/csv',
+    )
 #~ ~ ~ ~ ~ ~ ~ ~
 #(NAVEGACION)
 #~ ~ ~ ~ ~ ~ ~ ~
