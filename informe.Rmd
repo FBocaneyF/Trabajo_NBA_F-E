@@ -1,6 +1,6 @@
 ---
 # --- Metadatos Básicos ---
-title: "Análisis Estadístico del Éxito Deportivo de la temporada NBA 2022"
+title: "Análisis Estadístico del Éxito Deportivo de la temporada NBA 2021"
 author:
    - Eymi Borjas
    - Fabiola Bocaney
@@ -58,9 +58,10 @@ library(scales)
 
 La NBA es la mejor liga de baloncesto del mundo, donde los mejores jugadores compiten constantemente bajo presión. En esta Competencia, ganar un partido no solo depende del talento físico, sino también de la inteligencia táctica y del manejo de los datos. El baloncesto moderno de hoy se apoya en la estadística para entender qué factores, como la puntería o el control de los rebotes, aseguran que un equipo permanezca en la cima.\
 
-El presente estudio analiza el desempeño de los equipos de la NBA durante la temporada 2022, utilizando una base de datos de 542 partidos. El objetivo principal es entender por qué algunos equipos ganan y otros pierden, y si esto se debe a una falta de puntería constante o a rachas de inestabilidad durante el juego.\
+El presente estudio analiza el desempeño de los equipos de la NBA durante la temporada 2021, utilizando una base de datos de 1323 partidos. El objetivo principal es entender por qué algunos equipos ganan y otros pierden, y si esto se debe a una falta de puntería constante o a rachas de inestabilidad durante el juego.\
 
-A través de herramientas de estadística y computación, este trabajo explora cómo influyen el porcentaje de tiros, los rebotes y las asistencias en el marcador final. No se trata solo de ver quién anota más, sino de identificar qué factores, como el control del balón y la consistencia en los lanzamientos, son los que realmente aseguran la victoria.\
+A través de herramientas de estadística y computación, este trabajo explora cómo influyen el porcentaje de tiros, los rebotes y las asistencias en el marcador final. No se trata solo de ver quién anota más, sino de identificar qué factores, como el control del balón y la consistencia en los lanzamientos, son los que realmente aseguran la victoria.\newpage
+
 
 \section*{Estructura del Informe}
 
@@ -80,13 +81,13 @@ A través de herramientas de estadística y computación, este trabajo explora c
 
 \chapter{Planteamiento del Problema}
 
-En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan consistente pueda ser ese rendimiento bajo presión. El análisis de los 542 registros de la NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una irregularidad drástica en momentos clave?\
+En el baloncesto de élite, ganar un partido no siempre depende de qué tan alto sea el promedio de un equipo, sino de qué tan consistente pueda ser ese rendimiento bajo presión. El análisis de los 1323 registros de la NBA en 2021 revela una interrogante crítica: ¿se pierden los partidos por una falta de talento general o por una irregularidad drástica en momentos clave?\
 
 El problema radica en que el porcentaje de tiro (FG\_PCT) suele ser volátil. Cuando un equipo pierde, no siempre queda claro si es por una ineficiencia constante o por una alta variabilidad (inestabilidad) en sus lanzamientos. Además, existe una brecha en la comprensión de cómo factores específicos, como superar el 50% de efectividad de campo o dominar la batalla de rebotes, actúan como predictores determinantes de la victoria.\
 
 Debido a esto, se plantea las siguientes preguntas de investigación:\
 
-\textbf{1.}	¿Es la derrota en la NBA 2022 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo?\
+\textbf{1.}	¿Es la derrota en la temporada NBA 2021 consecuencia de una ineficiencia constante en el tiro o se debe a una alta volatilidad e inestabilidad en el porcentaje de campo?\
 
 \textbf{2.}	¿Como incide la capacidad de domino en el rebote sobre la victoria en el marcador final?\
 
@@ -95,7 +96,7 @@ Debido a esto, se plantea las siguientes preguntas de investigación:\
 
 \section{Justificación}
 
-El presente trabajo se delimita al análisis de la temporada 2022 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:\
+El presente trabajo se delimita al análisis de la temporada 2021 con el fin de garantizar la homogeneidad en el contexto táctico y reglamentario de los datos. La selección de este periodo y de las variables correspondientes responde a los siguientes criterios:\
 
 Se priorizan aquellos indicadores que reflejan directamente la eficiencia ofensiva y el control del juego, permitiendo un análisis con mayor valor interpretativo. El uso de este subconjunto de datos facilita la aplicación de herramientas de tendencia central, dispersión y tablas bivariantes, objetivos principales de este estudio.\
 
@@ -105,19 +106,19 @@ Al centrarse en un año específico, se eliminan ruidos estadísticos provocados
  
 \subsection{Objetivo General}
 \begin{itemize}
-  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2022, mediante el análisis de medidas de dispersión y tablas de contingencia.}
+  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2021, mediante el análisis de medidas de dispersión y tablas de contingencia.}
 \end{itemize}
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
   \item{Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.}
   \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
-  \item{Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
+  \item{Clasificar los encuentros de la temporada 2021 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
 \end{itemize}
 
 \section{Periodo de Referencia}
 
-El conjunto de datos a utilizar para este estudio pertenece al repositorio abierto de Kaggle (“NBA games data”), del cual se tomo como período de referencia los datos de la NBA temporada 2022.\
+El conjunto de datos a utilizar para este estudio pertenece al repositorio abierto de Kaggle (“NBA games data”), del cual se tomo como período de referencia los datos de la NBA temporada 2021.\
 
 \section{Variables}
 
@@ -150,13 +151,13 @@ El conjunto de datos a utilizar para este estudio pertenece al repositorio abier
 
 \section{Bases Teóricas}
 
-En este capítulo se definen los conceptos estadísticos y deportivos esenciales para realizar el análisis de los 542 registros de la temporada de la NBA del año 2022.\
+En este capítulo se definen los conceptos estadísticos y deportivos esenciales para realizar el análisis de los 1323 registros de la temporada de la NBA 2021.\
 
-Los conceptos que se presentan a continuación son las herramientas que nos permiten entender qué pasó realmente en la cancha durante la temporada 2022. Para ello, hemos organizado las definiciones en tres partes: las herramientas estadísticas para medir la consistencia, indicadores de juego para evaluar el talento, y el proceso de limpieza de datos, que garantiza que nuestro análisis de los 542 registros sea lo más cercano posible a la realidad.\
+Los conceptos que se presentan a continuación son las herramientas que nos permiten entender qué pasó realmente en la cancha durante la temporada 2021. Para ello, hemos organizado las definiciones en tres partes: las herramientas estadísticas para medir la consistencia, indicadores de juego para evaluar el talento, y el proceso de limpieza de datos, que garantiza que nuestro análisis de los 1323 registros sea lo más cercano posible a la realidad.\
 
 \subsection{Medidas De Tendendia Central (Media Aritmética)}
 
-Es el valor promedio obtenido al sumar todos los datos de una variable (como el FG_PCT_home) y dividirlo por el número total de registros (n=542). En este estudio, la media representa la "eficacia esperada" de un equipo en condiciones normales.
+Es el valor promedio obtenido al sumar todos los datos de una variable (como el FG_PCT_home) y dividirlo por el número total de registros (n=1323). En este estudio, la media representa la "eficacia esperada" de un equipo en condiciones normales.
 $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
 
 \subsection{Medidas de dispersión:}
@@ -176,8 +177,11 @@ $$CV =  \frac{s}{\bar{x}} \times 100\%$$
 
 **Correlación:** Cuantifica la fuerza y la dirección de la relación lineal entre dos variables numéricas. Se utiliza para evaluar si existe una dependencia entre variables. Un valor cercano a $+1$ indicaría una relación directa fuerte, mientras que un valor cercano a $0$ indicaría independencia entre las variables analizadas.}
 $$r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
-\end{itemize}
+\subsection{Análisis de la Consistencia y la Volatilidad}
 
+**Consistencia:** Se define como la capacidad de mantener un rendimiento cercano a la media. Estadísticamente, se mide a través de una baja desviación estándar.\
+
+**Volatilidad:** Representa la inestabilidad. Un equipo volátil puede tener partidos de un 60% de efectividad y otros de un 30%, lo que genera incertidumbre en el resultado.\
 
 \subsection{Diferencia de Puntos}
 
@@ -187,7 +191,7 @@ Definida como la variable que proviene de la resta entre puntos anotados y punto
 
 Se refiere al proceso de limpieza y transformación de los datos brutos del archivo NBA.csv.\
 
-**Filtrado Lógico:** Se selecciona un subconjunto de datos bajo criterios específicos (Temporada 2022).\
+**Filtrado Lógico:** Se selecciona un subconjunto de datos bajo criterios específicos (Temporada 2021).\
 
 **Depuración:** Verificación de valores nulos o atípicos (outliers) que podrían alterar los promedios de la temporada.\
 
@@ -210,12 +214,6 @@ Mide la eficiencia en lanzamientos desde la línea de castigo. Aunque no depende
 
 **Valor Referencial:** El promedio de la liga ronda el 75% - 78%. En finales de partido cerrados, este indicador es determinante para mantener o remontar un marcador.\
 
-\subsection{Análisis de la Consistencia y la Volatilidad}
-
-**Consistencia:** Se define como la capacidad de mantener un rendimiento cercano a la media. Estadísticamente, se mide a través de una baja desviación estándar.\
-
-**Volatilidad:** Representa la inestabilidad. Un equipo volátil puede tener partidos de un 60% de efectividad y otros de un 30%, lo que genera incertidumbre en el resultado.\
-
 \subsection{El Rebote como Factor de Control}
 
 El rebote **(REB)** representa el momento exacto en el que un equipo recupera la posesión y toma las riendas del juego. En este estudio, lo tratamos como una variable clave de control. La idea es descubrir si existe un umbral de rebotes que asegure estadísticamente la victoria.\
@@ -224,9 +222,14 @@ El rebote **(REB)** representa el momento exacto en el que un equipo recupera la
 
 Se define como la diferencia absoluta de puntos entre el equipo local y el visitante. Permite clasificar los juegos en:\
 
-**Cerrados:** Diferencia menor o igual a 5 puntos.\
-**Normales:** Diferencia entre 6 y 14 puntos.\
-**Abultados:** Diferencia mayor o igual a 15 puntos.\
+\begin{itemize}
+\item{\textbf{Cerrados:} Diferencia menor o igual a 5 puntos.}
+
+\item{\textbf{Normales:} Diferencia entre 6 y 14 puntos.}
+
+\item{\textbf{Abultados:} Diferencia mayor o igual a 15 puntos.}
+
+\end{itemize}
 
 Estos parámetros de rendimiento y valores referenciales de eficacia ofensiva han sido extraídos de los estándares estadísticos oficiales de **la National Basketball Association (NBA)** y del repositorio de datos analizado **(“NBA games data”)**.\
 
@@ -251,7 +254,7 @@ Para este trabajo, la fuente de información es el dataset  NBA.csv.\
 
 **Población:** Está conformada por todos los registros históricos de partidos de la NBA contenidos en el dataset.\
 
-**Muestra:** Los 542 registros de la temporada 2022 de la NBA. Esta selección garantiza que el análisis sea computacionalmente eficiente y estadísticamente relevante para el contexto actual del baloncesto.\
+**Muestra:** Los 1323 registros de la temporada 2021 de la NBA. Esta selección garantiza que el análisis sea computacionalmente eficiente y estadísticamente relevante para el contexto actual del baloncesto.\
 
 
 \subsection{Procedimiento de Tratamiento de Datos}
@@ -283,76 +286,150 @@ El tratamiento de los datos siguió tres fases fundamentales:\
 \section{Eficiencia vs Volatilidad}
 
 ```{r}
-# Cargamos el dataset
+# 1. Librerías
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(scales)
 
-nba_df <- read_csv("NBA.csv")
+# 2. Cargar y filtrar para SEASON 2021
+df_nba <- read_csv("NBA.csv") %>%
+  na.omit() %>%
+  filter(SEASON == 2021)
 
-nba_clean <- nba_df %>%
-  filter(SEASON == 2022) %>%
-  drop_na(FG_PCT_home, REB_home, PTS_home, PTS_away) %>%
+# 3. Preparar los datos para las TRES cajas (FG, FG3 y FT)
+# Seleccionamos los porcentajes de ambos equipos para tener una visión general de la liga
+df_cajas <- df_nba %>%
+  select(FG_PCT_home, FG_PCT_away, 
+         FG3_PCT_home, FG3_PCT_away, 
+         FT_PCT_home, FT_PCT_away) %>%
+  # Pasamos a formato largo y promediamos local/visitante por partido
   mutate(
-    # variable resultado (Victoria/Derrota)
-    resultado = ifelse(HOME_TEAM_WINS == 1, "Victoria", "Derrota"),
-    # Variable derivada: Margen de Victoria
-    margen_puntos = PTS_home - PTS_away,
-    # Variable derivada: Nivel de Competitividad
-    competitividad = case_when(
-      abs(margen_puntos) <= 5 ~ "Cerrado",
-      abs(margen_puntos) >= 15 ~ "Abultado",
-      TRUE ~ "Normal"
-    )
-  )
- 
-```
-```{r}
+    `Campo (FG%)` = (FG_PCT_home + FG_PCT_away) / 2,
+    `Triples (FG3%)` = (FG3_PCT_home + FG3_PCT_away) / 2,
+    `Libres (FT%)`  = (FT_PCT_home + FT_PCT_away) / 2
+  ) %>%
+  select(`Campo (FG%)`, `Triples (FG3%)`, `Libres (FT%)`) %>%
+  pivot_longer(cols = everything(), 
+               names_to = "Tipo_Tiro", 
+               values_to = "Efectividad")
 
-# Comparar Media y Desviación Estándar por Resultado
-
-obj1_tabla <- nba_clean %>%
-  group_by(resultado) %>%
-  summarise(
-    Media_FG = mean(FG_PCT_home, na.rm = TRUE),
-    Volatilidad_SD = sd(FG_PCT_home, na.rm = TRUE),
-    Coef_Variacion = (Volatilidad_SD / Media_FG) * 100
-    )
+# 4. Gráfica de 3 Cajas
+ggplot(df_cajas, aes(x = Tipo_Tiro, y = Efectividad, fill = Tipo_Tiro)) +
+  geom_boxplot(outlier.color = "#D00070", alpha = 0.7, width = 0.5) +
   
-kable(obj1_tabla, caption = "Comparativa de Eficiencia y Estabilidad de Tiro", digits = 3)
-
+  # Colores rosados/morados para las 3 categorías
+  scale_fill_manual(values = c(
+    "Campo (FG%)" = "#D00070", 
+    "Triples (FG3%)"  = "#FFB6C1", 
+    "Libres (FT%)"   = "#A380A3"
+  )) +
+  
+  # Formato de porcentaje (ej: 50,0%) con coma
+  scale_y_continuous(labels = label_percent(decimal.mark = ",")) +
+  
+  labs(
+    title = "Analisis de Eficiencia en Derrota",
+    x = "Tipo de Tiro",
+    y = "Porcentaje de Efectividad"
+  ) +
+  
+  theme_minimal() +
+  theme(
+    text = element_text(face = "bold"),
+    legend.position = "none" # Los nombres ya están abajo en el eje X
+  )
 ```
 
-**Interpretación:** Los resultados muestran una mayor volatilidad en las victorias que en las derrotas, esto nos indica que el éxito en la temporada 2022 no estuvo ligado a la estabilidad lineal, sino a la capacidad de generar rachas ofensivas explosivas. Mientras que las derrotas muestran un rendimiento bajo pero constante, las victorias se caracterizan por picos de eficiencia que logran desequilibrar el marcador a pesar de la variabilidad.\
+**Interpretación:** Se eligió el Diagrama de Caja y Bigotes porque es la herramienta estándar para medir la dispersión y consistencia. A través de la mediana, el rango intercuartílico y los outliers, el gráfico revela una jerarquía de eficiencia clara:\
+
+Los Tiros Libres (FT%) son los más efectivos pero volátiles, mientras que los Tiros de Campo (FG%) muestran una consistencia uniforme entre el 40% y 50% y por el contrario, los Triples (FG3%) se mantienen casi totalmente por debajo de la barrera crítica del 50%, demostrando su mayor dificultad técnica.\
+
+La asimetria en los bigotes y la presencia de valores atípicos demuestran que en esta temporada era más probable tener un colapso en tiros libres o una racha extraordinaria en triples que viceversa, confirmando que la eficiencia no sigue una distribución normal sino que depende de la inestabilidad del juego.\
 
 \section{Dominio del Rebote}
 ```{r}
 
-# se clasifican los rebotes en rangos para ver la tendencia
 
-nba_clean %>%
-  mutate(rebotes = cut(REB_home, breaks = 4)) %>%
-  ggplot(aes(x = rebotes, fill = resultado)) +
-  geom_bar(position = "dodge") +
-  scale_fill_manual(values = c("#FFC0CB", "#FF69B4")) +
-  theme_minimal() + labs(title = "Dominio del Rebote", x = "Rangos", y = "Total")
+
 ```
 
-**Interpretación:** Se observa una tendencia proporcional, a mayor cantidad de rebotes capturados la frecuencia de victorias aumenta significativamente, lo que sugiere que el dominio del tablero es un factor predictivo del éxito actuando como un mecanismo de compensación ante posibles periodos de baja eficiencia en el tiro de campo.\
+**Interpretación:** ...\
 
 \section{Competitividad y Estabilidad}
 
 ```{r}
-# Comparación de puntería según la competitividad del juego
-obj3_tabla <- nba_clean %>%
-  group_by(competitividad) %>%
-  summarise(
-    Punteria_Media = mean(FG_PCT_home, na.rm = TRUE),
-    Asistencias_Promedio = mean(AST_home, na.rm = TRUE),
-    Estabilidad = sd(FG_PCT_home, na.rm = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+#datos
+df_nba_2021 <- read_csv("NBA.csv") %>%
+  na.omit() %>%
+  filter(SEASON == 2021) %>%
+  mutate(
+    AST_Dif = if_else(HOME_TEAM_WINS == 1, AST_home, AST_away) - 
+              if_else(HOME_TEAM_WINS == 1, AST_away, AST_home),
+    REB_Dif = if_else(HOME_TEAM_WINS == 1, REB_home, REB_away) - 
+              if_else(HOME_TEAM_WINS == 1, REB_away, REB_home),
+    Margen = if_else(HOME_TEAM_WINS == 1, PTS_home - PTS_away, PTS_away - PTS_home),
+    Tipo_Juego = case_when(
+      Margen <= 5 ~ "Cerrado",
+      Margen > 5 & Margen < 15 ~ "Normal",
+      Margen >= 15 ~ "Abierto"
+    )
   )
 
-kable(obj3_tabla, caption = "Rendimiento según el Nivel de Competitividad", digits = 3)
+# Gráfica
+ggplot(df_nba_2021, aes(x = AST_Dif, y = REB_Dif, color = Tipo_Juego)) +
+  geom_point(alpha = 0.7, size = 3) +
+  scale_color_manual(values = c("Abierto" = "#D00070", "Normal" = "#FFB6C1", "Cerrado" = "#A380A3")) +
+  scale_x_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
+  labs(title = "Relación Asistencias vs Rebotes",
+       x = "Diferencial de Asistencias", y = "Diferencial de Rebotes",
+       color = "Tipo de Juego") +
+  theme_minimal() +
+  theme(text = element_text(face = "bold"), legend.position = "bottom")
+```
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+# datos)
+df_nba_2021 <- read_csv("NBA.csv") %>%
+  na.omit() %>%
+  filter(SEASON == 2021) %>%
+  mutate(
+    AST_Dif = if_else(HOME_TEAM_WINS == 1, AST_home, AST_away) - 
+              if_else(HOME_TEAM_WINS == 1, AST_away, AST_home),
+    Margen = if_else(HOME_TEAM_WINS == 1, PTS_home - PTS_away, PTS_away - PTS_home),
+    Tipo_Juego = case_when(
+      Margen <= 5 ~ "Cerrado",
+      Margen > 5 & Margen < 15 ~ "Normal",
+      Margen >= 15 ~ "Abierto"
+    )
+  )
+
+# Gráfica
+ggplot(df_nba_2021, aes(x = Tipo_Juego, y = AST_Dif, fill = Tipo_Juego)) +
+  geom_violin(alpha = 0.7, color = "black") +
+  geom_boxplot(width = 0.1, color = "black", outlier.shape = NA) +
+  scale_fill_manual(values = c("Abierto" = "#D00070", "Normal" = "#FFB6C1", "Cerrado" = "#A380A3")) +
+  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
+  labs(title = "Distribución de Asistencias por Tipo de Juego",
+       x = "Tipo de Juego", y = "Diferencial de Asistencias") +
+  theme_minimal() +
+  theme(text = element_text(face = "bold"), legend.position = "none")
 ```
 
-**Interpretacion:** El análisis demuestra que la competitividad está ligada a la eficiencia, los juegos abiertos registran el máximo desempeño ($48.8\%$ FG y $26.3$ asistencias), evidenciando que el juego colectivo marca la diferencia. Por el contrario, en juegos cerrados la efectividad cae al $46.7\%$ debido a la presión defensiva, aunque presentan una estabilidad superior, lo que confirma que el equilibrio se mantiene por un rendimiento equilibrado y contenido entre ambos equipos.
+**Interpretacion:** Se decidio utilizar un Gráfico de Dispersión con Violines Marginales para analizar la interacción multivariable entre el control del juego y el éxito deportivo. Esta visualización permite cruzar el diferencial de asistencias y rebotes, mientras que la codificación por color segmenta los resultados según el margen de victoria (Cerrado, Normal, Abierto). Los gráficos de violín integrados son fundamentales para observar la densidad de los datos, revelando dónde se concentra la probabilidad de éxito en cada categoría sin saturar la imagen.\
+
+El análisis de los datos confirma que las victorias más contundentes están estrechamente ligadas a un alto diferencial de asistencias, lo que posiciona al movimiento del balón como el principal motor de dominio. Ademas la distribución simétrica en los violines de rebotes sugiere una alta varianza, indicando que se puede ganar incluso con desventaja física si se compensa con eficiencia colectiva. En resumen este gráfico demuestra que asistencias y rebotes funcionan como variables independientes pero complementarias: la excelencia de una puede mitigar deficiencias en la otra dentro de la variabilidad aleatoria de cada encuentro.\
 
 \chapter{Conclusiones y Recomendaciones}
 
@@ -373,7 +450,72 @@ Recomendación 2 del trabajo de investigación.\
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
 
-\chapter{Anexo A}
+\chapter{Metricas por temporada}
+
+```{r}
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(scales)
+
+# datos
+
+df_nba <- read_csv("NBA.csv") %>%
+  na.omit() %>%
+  mutate(
+    puntos_total = PTS_home + PTS_away,
+    ast_total    = AST_home + AST_away,
+    reb_total    = REB_home + REB_away
+  )
+
+#  datos
+df_hist <- df_nba %>%
+  group_by(SEASON) %>%
+  summarise(
+    Puntos = sum(puntos_total, na.rm = TRUE),
+    Asistencias = sum(ast_total, na.rm = TRUE),
+    Rebotes = sum(reb_total, na.rm = TRUE)
+  ) %>%
+  arrange(desc(SEASON)) %>%
+  slice(1:5) %>% # Aquí limitamos a los 5 puntos que pediste
+  pivot_longer(-SEASON, names_to = "Metrica", values_to = "Total")
+
+#  gráfica
+ggplot(df_hist, aes(x = SEASON, y = Total, color = Metrica, group = Metrica)) +
+  geom_line(size = 1) +
+  geom_point(size = 3.5, shape = 21, fill = "white", stroke = 1.5) +
+  
+  # Colores
+  scale_color_manual(values = c(
+    "Puntos" = "#D00070",      
+    "Asistencias" = "#FFB6C1", 
+    "Rebotes" = "#A380A3"
+  )) +
+  
+ 
+  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
+  
+  labs(
+    title = " Evolución Histórica",
+    x = "Temporada",
+    y = "Total Acumulado",
+    color = "Métrica"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(face = "bold"),
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+**Interpretación:** Se realizo un grafico de líneas con Marcadores, una herramienta muy útil para el análisis de series temporales, permitiendo identificar la pendiente de las tendencias y comparar magnitudes bajo una escala unificada. Este revela una estabilidad relativa hasta 2020, seguida de una recuperación en 2021 y un descenso pronunciado en 2022. Este último comportamiento se identifica como una variación situacional del dataset, explicada por el corte temporal de la recolección de datos y no necesariamente por un cambio en la dinámica del juego.\
+
+El gráfico demuestra una correlación armónica entre puntos, rebotes y asistencias, sus movimientos proporcionales validan que estas variables de volumen dependen del ritmo de juego y la cantidad de partidos disputados. Finalmente la visualización establece una línea base de producción donde el volumen de puntos triplica al de rebotes y cuadruplica al de asistencias, proporcionando una estructura sólida para modelos predictivos.\
+
+
 
 \chapter{Anexo B}
 

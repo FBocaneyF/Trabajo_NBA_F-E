@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  10 APR 2026 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  13 APR 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,11 +865,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--128
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--135
-
- []
-
 [1
 
 
@@ -959,249 +954,240 @@ File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 290.
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--300
+Underfull \hbox (badness 10000) in paragraph at lines 295--298
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--305
+Underfull \hbox (badness 10000) in paragraph at lines 299--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--308
+Underfull \hbox (badness 10000) in paragraph at lines 305--309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--311
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
 
  []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 312.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 312.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 312.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--317
+Underfull \hbox (badness 10000) in paragraph at lines 315--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--321
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--326
+
+ []
+
+LaTeX Info: Redefining \. on input line 326.
+LaTeX Info: Redefining \% on input line 326.
 [7]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 322.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 322.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 322.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--327
+Underfull \hbox (badness 10000) in paragraph at lines 327--330
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--331
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
 
  []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 332.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 332.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 334--337
+Underfull \hbox (badness 10000) in paragraph at lines 337--340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--341
+Underfull \hbox (badness 10000) in paragraph at lines 343--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--347
+Underfull \hbox (badness 10000) in paragraph at lines 347--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--351
+Underfull \hbox (badness 10000) in paragraph at lines 353--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--359
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--364
-
- []
-
-LaTeX Info: Redefining \. on input line 364.
-LaTeX Info: Redefining \% on input line 364.
+LaTeX Info: Redefining \. on input line 369.
+LaTeX Info: Redefining \% on input line 369.
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 365--368
+Underfull \hbox (badness 10000) in paragraph at lines 373--377
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--373
-
- []
-
-LaTeX Info: Redefining \. on input line 374.
-LaTeX Info: Redefining \% on input line 374.
+LaTeX Info: Redefining \. on input line 378.
+LaTeX Info: Redefining \% on input line 378.
 [9]
 Cap\'{\i }tulo 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--386
+Underfull \hbox (badness 10000) in paragraph at lines 382--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--390
+Underfull \hbox (badness 10000) in paragraph at lines 391--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--397
+Underfull \hbox (badness 10000) in paragraph at lines 397--401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 402--404
+Underfull \hbox (badness 10000) in paragraph at lines 406--408
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--408
+Underfull \hbox (badness 10000) in paragraph at lines 409--413
 
  []
 
 [10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--416
+Underfull \hbox (badness 10000) in paragraph at lines 418--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--421
+Underfull \hbox (badness 10000) in paragraph at lines 422--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--430
+Underfull \hbox (badness 10000) in paragraph at lines 433--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--434
+Underfull \hbox (badness 10000) in paragraph at lines 436--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--438
+Underfull \hbox (badness 10000) in paragraph at lines 440--443
 
  []
 
-LaTeX Info: Redefining \. on input line 443.
-LaTeX Info: Redefining \% on input line 443.
+LaTeX Info: Redefining \. on input line 448.
+LaTeX Info: Redefining \% on input line 448.
 [11]
 Cap\'{\i }tulo 4.
+<informe_files/figure-latex/unnamed-chunk-1-1.pdf, id=261, 459.7175pt x 315.177
+5pt>
+File: informe_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-1-1.pdf  used
+ on input line 452.
+(pdftex.def)             Requested size: 371.30594pt x 254.5758pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 463--470
+Underfull \hbox (badness 10000) in paragraph at lines 454--458
 
  []
 
-<informe_files/figure-latex/unnamed-chunk-3-1.pdf, id=262, 453.695pt x 315.1775
-pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--464
+
+ []
+
+[12
+
+ <./informe_files/figure-latex/unnamed-chunk-1-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 465--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
+
+ []
+
+<informe_files/figure-latex/unnamed-chunk-3-1.pdf, id=277, 461.725pt x 308.1512
+5pt>
 File: informe_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-3-1.pdf  used
- on input line 473.
-(pdftex.def)             Requested size: 371.30594pt x 257.94225pt.
-[12
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 475--480
+ on input line 477.
+(pdftex.def)             Requested size: 371.30594pt x 247.80496pt.
+<informe_files/figure-latex/unnamed-chunk-4-1.pdf, id=278, 459.7175pt x 316.181
+24pt>
+File: informe_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-4-1.pdf  used
+ on input line 479.
+(pdftex.def)             Requested size: 371.30594pt x 255.38654pt.
+LaTeX Info: Redefining \. on input line 479.
+LaTeX Info: Redefining \% on input line 479.
+[13 <./informe_files/figure-latex/unnamed-chunk-3-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 481--490
 
  []
 
-LaTeX Info: Redefining \. on input line 510.
-LaTeX Info: Redefining \% on input line 510.
-[13 <./informe_files/figure-latex/unnamed-chunk-3-1.pdf>]
-LaTeX Info: Redefining \. on input line 511.
-LaTeX Info: Redefining \% on input line 511.
-[14]
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--501
+
+ []
+
+LaTeX Info: Redefining \. on input line 502.
+LaTeX Info: Redefining \% on input line 502.
+[14 <./informe_files/figure-latex/unnamed-chunk-4-1.pdf>]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--514
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--518
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
 
  []
 
@@ -1209,16 +1195,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
 ]
 Ap\'{e}ndice A.
+<informe_files/figure-latex/unnamed-chunk-5-1.pdf, id=313, 459.7175pt x 316.181
+24pt>
+File: informe_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-5-1.pdf  used
+ on input line 521.
+(pdftex.def)             Requested size: 371.30594pt x 255.38654pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--532
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 533--540
+
+ []
+
 [16
 
-]
+ <./informe_files/figure-latex/unnamed-chunk-5-1.pdf>] [17]
 Ap\'{e}ndice B.
-[17
+[18
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[18
+[19
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 9.
@@ -1232,14 +1235,14 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 12299671A922E82A56677BBC8C8169DD;7449.
+(rerunfilecheck)             Checksum: D4BEC9F5626A5267E4F37D3886E9253E;7551.
  ) 
 Here is how much of TeX's memory you used:
- 20609 strings out of 474222
- 340702 string characters out of 5748733
+ 20632 strings out of 474222
+ 342636 string characters out of 5748733
  1937975 words of memory out of 5000000
- 42457 multiletter control sequences out of 15000+600000
- 568384 words of font info for 78 fonts, out of 8000000 for 9000
+ 42482 multiletter control sequences out of 15000+600000
+ 566866 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,433b,780s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1248,16 +1251,16 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (22 pages, 464392 bytes).
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb>
+Output written on informe.pdf (23 pages, 550051 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 62 named destinations out of 1000 (max. 500000)
- 296 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 311 words of extra memory for PDF output out of 10000 (max. 10000000)
 

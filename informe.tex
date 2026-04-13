@@ -42,7 +42,7 @@
 %                         DATOS (Conectados a RMarkdown)                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Análisis Estadístico del Éxito Deportivo de la temporada NBA
-2022}
+2021}
 \author{Eymi Borjas \\ Fabiola Bocaney}
 
 % Lógica para Facultad: Si la defines en el YAML la usa, si no, usa la default
@@ -121,17 +121,17 @@ puntería o el control de los rebotes, aseguran que un equipo permanezca
 en la cima.\\
 
 El presente estudio analiza el desempeño de los equipos de la NBA
-durante la temporada 2022, utilizando una base de datos de 542 partidos.
-El objetivo principal es entender por qué algunos equipos ganan y otros
-pierden, y si esto se debe a una falta de puntería constante o a rachas
-de inestabilidad durante el juego.\\
+durante la temporada 2021, utilizando una base de datos de 1323
+partidos. El objetivo principal es entender por qué algunos equipos
+ganan y otros pierden, y si esto se debe a una falta de puntería
+constante o a rachas de inestabilidad durante el juego.\\
 
 A través de herramientas de estadística y computación, este trabajo
 explora cómo influyen el porcentaje de tiros, los rebotes y las
 asistencias en el marcador final. No se trata solo de ver quién anota
 más, sino de identificar qué factores, como el control del balón y la
 consistencia en los lanzamientos, son los que realmente aseguran la
-victoria.\\
+victoria.\newpage
 
 \section*{Estructura del Informe}
 
@@ -153,8 +153,8 @@ victoria.\\
 
 En el baloncesto de élite, ganar un partido no siempre depende de qué
 tan alto sea el promedio de un equipo, sino de qué tan consistente pueda
-ser ese rendimiento bajo presión. El análisis de los 542 registros de la
-NBA en 2022 revela una interrogante crítica: ¿se pierden los partidos
+ser ese rendimiento bajo presión. El análisis de los 1323 registros de
+la NBA en 2021 revela una interrogante crítica: ¿se pierden los partidos
 por una falta de talento general o por una irregularidad drástica en
 momentos clave?\\
 
@@ -168,7 +168,7 @@ la victoria.\\
 
 Debido a esto, se plantea las siguientes preguntas de investigación:\\
 
-\textbf{1.} ¿Es la derrota en la NBA 2022 consecuencia de una
+\textbf{1.} ¿Es la derrota en la temporada NBA 2021 consecuencia de una
 ineficiencia constante en el tiro o se debe a una alta volatilidad e
 inestabilidad en el porcentaje de campo?\\
 
@@ -182,7 +182,7 @@ porcentaje?\\
 
 \section{Justificación}
 
-El presente trabajo se delimita al análisis de la temporada 2022 con el
+El presente trabajo se delimita al análisis de la temporada 2021 con el
 fin de garantizar la homogeneidad en el contexto táctico y reglamentario
 de los datos. La selección de este periodo y de las variables
 correspondientes responde a los siguientes criterios:\\
@@ -202,21 +202,21 @@ NBA.\\
 
 \subsection{Objetivo General}
 \begin{itemize}
-  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2022, mediante el análisis de medidas de dispersión y tablas de contingencia.}
+  \item{Evaluar la incidencia de la estabilidad en el tiro y la relación de variables de efectividad y posesión en el resultado final de los partidos de la NBA en el año 2021, mediante el análisis de medidas de dispersión y tablas de contingencia.}
 \end{itemize}
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
   \item{Describir el comportamiento del porcentaje de tiro de campo en los partidos perdidos para identificar si predominan niveles bajos de eficiencia o una mayor variabilidad en el rendimiento de tiro.}
   \item{Explorar la asociación entre la cantidad de rebotes obtenidos y el resultado final de los partidos mediante herramientas de estadística descriptiva.}
-  \item{Clasificar los encuentros de la temporada 2022 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
+  \item{Clasificar los encuentros de la temporada 2021 de la NBA según su margen de competitividad (diferencia en el marcador) y comparar la estabilidad en el porcentaje de tiro de campo entre los distintos niveles de competitividad.}
 \end{itemize}
 
 \section{Periodo de Referencia}
 
 El conjunto de datos a utilizar para este estudio pertenece al
 repositorio abierto de Kaggle (``NBA games data''), del cual se tomo
-como período de referencia los datos de la NBA temporada 2022.\\
+como período de referencia los datos de la NBA temporada 2021.\\
 
 \section{Variables}
 
@@ -249,22 +249,22 @@ como período de referencia los datos de la NBA temporada 2022.\\
 \section{Bases Teóricas}
 
 En este capítulo se definen los conceptos estadísticos y deportivos
-esenciales para realizar el análisis de los 542 registros de la
-temporada de la NBA del año 2022.\\
+esenciales para realizar el análisis de los 1323 registros de la
+temporada de la NBA 2021.\\
 
 Los conceptos que se presentan a continuación son las herramientas que
 nos permiten entender qué pasó realmente en la cancha durante la
-temporada 2022. Para ello, hemos organizado las definiciones en tres
+temporada 2021. Para ello, hemos organizado las definiciones en tres
 partes: las herramientas estadísticas para medir la consistencia,
 indicadores de juego para evaluar el talento, y el proceso de limpieza
-de datos, que garantiza que nuestro análisis de los 542 registros sea lo
-más cercano posible a la realidad.\\
+de datos, que garantiza que nuestro análisis de los 1323 registros sea
+lo más cercano posible a la realidad.\\
 
 \subsection{Medidas De Tendendia Central (Media Aritmética)}
 
 Es el valor promedio obtenido al sumar todos los datos de una variable
 (como el FG\_PCT\_home) y dividirlo por el número total de registros
-(n=542). En este estudio, la media representa la ``eficacia esperada''
+(n=1323). En este estudio, la media representa la ``eficacia esperada''
 de un equipo en condiciones normales.
 \[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\]
 
@@ -289,7 +289,16 @@ una dependencia entre variables. Un valor cercano a \(+1\) indicaría una
 relación directa fuerte, mientras que un valor cercano a \(0\) indicaría
 independencia entre las variables analizadas.\}
 \[r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n\cdot\sqrt{\sum_{i=1}^{n}) (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}\]
-\textbackslash end\{itemize\}
+
+\subsection{Análisis de la Consistencia y la Volatilidad}
+
+\textbf{Consistencia:} Se define como la capacidad de mantener un
+rendimiento cercano a la media. Estadísticamente, se mide a través de
+una baja desviación estándar.\\
+
+\textbf{Volatilidad:} Representa la inestabilidad. Un equipo volátil
+puede tener partidos de un 60\% de efectividad y otros de un 30\%, lo
+que genera incertidumbre en el resultado.\\
 
 \subsection{Diferencia de Puntos}
 
@@ -304,12 +313,12 @@ Se refiere al proceso de limpieza y transformación de los datos brutos
 del archivo NBA.csv.\\
 
 \textbf{Filtrado Lógico:} Se selecciona un subconjunto de datos bajo
-criterios específicos (Temporada 2022).\\
+criterios específicos (Temporada 2021).\\
 
 \textbf{Depuración:} Verificación de valores nulos o atípicos (outliers)
 que podrían alterar los promedios de la temporada.\\
 
-\subsection{Porcentaje de Tiros de Campo $(FG_PCT)$}
+\subsection{Porcentaje de Tiros de Campo (FG\_PCT)}
 
 Es la estadística general de puntería. Incluye todos los lanzamientos
 realizados durante el juego (tanto de 2 como de 3 puntos), excluyendo
@@ -319,7 +328,7 @@ los tiros libres.\\
 promedio de la liga. Superar el 50\% es un indicador de alta eficiencia
 ofensiva.\\
 
-\subsection{Porcentaje de Tiros de Tres Puntos $(FG3_PCT)$}
+\subsection{Porcentaje de Tiros de Tres Puntos (FG3\_PCT)}
 
 Mide la eficacia exclusivamente en lanzamientos detrás de la línea de
 tres puntos. Es una variable crítica debido a que tiene una mayor
@@ -329,7 +338,7 @@ volatilidad que los tiros de corta distancia.\\
 sólido. Un porcentaje inferior al 30\% suele correlacionarse con la
 derrota en el baloncesto moderno.\\
 
-\subsection{Porcentaje de Tiros Libres $(FT_PCT)$}
+\subsection{Porcentaje de Tiros Libres (FT\_PCT)}
 
 Mide la eficiencia en lanzamientos desde la línea de castigo. Aunque no
 depende de la táctica de juego, es un factor de estabilidad emocional
@@ -338,16 +347,6 @@ bajo presión.\\
 \textbf{Valor Referencial:} El promedio de la liga ronda el 75\% - 78\%.
 En finales de partido cerrados, este indicador es determinante para
 mantener o remontar un marcador.\\
-
-\subsection{Análisis de la Consistencia y la Volatilidad}
-
-\textbf{Consistencia:} Se define como la capacidad de mantener un
-rendimiento cercano a la media. Estadísticamente, se mide a través de
-una baja desviación estándar.\\
-
-\textbf{Volatilidad:} Representa la inestabilidad. Un equipo volátil
-puede tener partidos de un 60\% de efectividad y otros de un 30\%, lo
-que genera incertidumbre en el resultado.\\
 
 \subsection{El Rebote como Factor de Control}
 
@@ -362,9 +361,14 @@ victoria.\\
 Se define como la diferencia absoluta de puntos entre el equipo local y
 el visitante. Permite clasificar los juegos en:\\
 
-\textbf{Cerrados:} Diferencia menor o igual a 5 puntos.\\
-\textbf{Normales:} Diferencia entre 6 y 14 puntos.\\
-\textbf{Abultados:} Diferencia mayor o igual a 15 puntos.\\
+\begin{itemize}
+\item{\textbf{Cerrados:} Diferencia menor o igual a 5 puntos.}
+
+\item{\textbf{Normales:} Diferencia entre 6 y 14 puntos.}
+
+\item{\textbf{Abultados:} Diferencia mayor o igual a 15 puntos.}
+
+\end{itemize}
 
 Estos parámetros de rendimiento y valores referenciales de eficacia
 ofensiva han sido extraídos de los estándares estadísticos oficiales de
@@ -402,9 +406,10 @@ Para este trabajo, la fuente de información es el dataset NBA.csv.\\
 \textbf{Población:} Está conformada por todos los registros históricos
 de partidos de la NBA contenidos en el dataset.\\
 
-\textbf{Muestra:} Los 542 registros de la temporada 2022 de la NBA. Esta
-selección garantiza que el análisis sea computacionalmente eficiente y
-estadísticamente relevante para el contexto actual del baloncesto.\\
+\textbf{Muestra:} Los 1323 registros de la temporada 2021 de la NBA.
+Esta selección garantiza que el análisis sea computacionalmente
+eficiente y estadísticamente relevante para el contexto actual del
+baloncesto.\\
 
 \subsection{Procedimiento de Tratamiento de Datos}
 
@@ -444,69 +449,55 @@ dependencia entre indicadores.
 
 \section{Eficiencia vs Volatilidad}
 
-\begin{longtable}[]{@{}lrrr@{}}
-\caption{Comparativa de Eficiencia y Estabilidad de Tiro}\tabularnewline
-\toprule\noalign{}
-resultado & Media\_FG & Volatilidad\_SD & Coef\_Variacion \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-resultado & Media\_FG & Volatilidad\_SD & Coef\_Variacion \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Derrota & 0.445 & 0.047 & 10.581 \\
-Victoria & 0.493 & 0.053 & 10.845 \\
-\end{longtable}
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-1-1} \end{center}
 
-\textbf{Interpretación:} Los resultados muestran una mayor volatilidad
-en las victorias que en las derrotas, esto nos indica que el éxito en la
-temporada 2022 no estuvo ligado a la estabilidad lineal, sino a la
-capacidad de generar rachas ofensivas explosivas. Mientras que las
-derrotas muestran un rendimiento bajo pero constante, las victorias se
-caracterizan por picos de eficiencia que logran desequilibrar el
-marcador a pesar de la variabilidad.\\
+\textbf{Interpretación:} Se eligió el Diagrama de Caja y Bigotes porque
+es la herramienta estándar para medir la dispersión y consistencia. A
+través de la mediana, el rango intercuartílico y los outliers, el
+gráfico revela una jerarquía de eficiencia clara:\\
+
+Los Tiros Libres (FT\%) son los más efectivos pero volátiles, mientras
+que los Tiros de Campo (FG\%) muestran una consistencia uniforme entre
+el 40\% y 50\% y por el contrario, los Triples (FG3\%) se mantienen casi
+totalmente por debajo de la barrera crítica del 50\%, demostrando su
+mayor dificultad técnica.\\
+
+La asimetria en los bigotes y la presencia de valores atípicos
+demuestran que en esta temporada era más probable tener un colapso en
+tiros libres o una racha extraordinaria en triples que viceversa,
+confirmando que la eficiencia no sigue una distribución normal sino que
+depende de la inestabilidad del juego.\\
 
 \section{Dominio del Rebote}
 
-\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-3-1} \end{center}
-
-\textbf{Interpretación:} Se observa una tendencia proporcional, a mayor
-cantidad de rebotes capturados la frecuencia de victorias aumenta
-significativamente, lo que sugiere que el dominio del tablero es un
-factor predictivo del éxito actuando como un mecanismo de compensación
-ante posibles periodos de baja eficiencia en el tiro de campo.\\
+\textbf{Interpretación:} \ldots{}\\
 
 \section{Competitividad y Estabilidad}
 
-\begin{longtable}[]{@{}lrrr@{}}
-\caption{Rendimiento según el Nivel de Competitividad}\tabularnewline
-\toprule\noalign{}
-competitividad & Punteria\_Media & Asistencias\_Promedio &
-Estabilidad \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-competitividad & Punteria\_Media & Asistencias\_Promedio &
-Estabilidad \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Abultado & 0.488 & 26.347 & 0.067 \\
-Cerrado & 0.467 & 24.932 & 0.044 \\
-Normal & 0.469 & 24.872 & 0.054 \\
-\end{longtable}
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
-\textbf{Interpretacion:} El análisis demuestra que la competitividad
-está ligada a la eficiencia, los juegos abiertos registran el máximo
-desempeño (\(48.8\%\) FG y \(26.3\) asistencias), evidenciando que el
-juego colectivo marca la diferencia. Por el contrario, en juegos
-cerrados la efectividad cae al \(46.7\%\) debido a la presión defensiva,
-aunque presentan una estabilidad superior, lo que confirma que el
-equilibrio se mantiene por un rendimiento equilibrado y contenido entre
-ambos equipos.
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-4-1} \end{center}
+
+\textbf{Interpretacion:} Se decidio utilizar un Gráfico de Dispersión
+con Violines Marginales para analizar la interacción multivariable entre
+el control del juego y el éxito deportivo. Esta visualización permite
+cruzar el diferencial de asistencias y rebotes, mientras que la
+codificación por color segmenta los resultados según el margen de
+victoria (Cerrado, Normal, Abierto). Los gráficos de violín integrados
+son fundamentales para observar la densidad de los datos, revelando
+dónde se concentra la probabilidad de éxito en cada categoría sin
+saturar la imagen.\\
+
+El análisis de los datos confirma que las victorias más contundentes
+están estrechamente ligadas a un alto diferencial de asistencias, lo que
+posiciona al movimiento del balón como el principal motor de dominio.
+Ademas la distribución simétrica en los violines de rebotes sugiere una
+alta varianza, indicando que se puede ganar incluso con desventaja
+física si se compensa con eficiencia colectiva. En resumen este gráfico
+demuestra que asistencias y rebotes funcionan como variables
+independientes pero complementarias: la excelencia de una puede mitigar
+deficiencias en la otra dentro de la variabilidad aleatoria de cada
+encuentro.\\
 
 \chapter{Conclusiones y Recomendaciones}
 
@@ -525,7 +516,27 @@ ambos equipos.
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
 
-\chapter{Anexo A}
+\chapter{Metricas por temporada}
+
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-5-1} \end{center}
+
+\textbf{Interpretación:} Se realizo un grafico de líneas con Marcadores,
+una herramienta muy útil para el análisis de series temporales,
+permitiendo identificar la pendiente de las tendencias y comparar
+magnitudes bajo una escala unificada. Este revela una estabilidad
+relativa hasta 2020, seguida de una recuperación en 2021 y un descenso
+pronunciado en 2022. Este último comportamiento se identifica como una
+variación situacional del dataset, explicada por el corte temporal de la
+recolección de datos y no necesariamente por un cambio en la dinámica
+del juego.\\
+
+El gráfico demuestra una correlación armónica entre puntos, rebotes y
+asistencias, sus movimientos proporcionales validan que estas variables
+de volumen dependen del ritmo de juego y la cantidad de partidos
+disputados. Finalmente la visualización establece una línea base de
+producción donde el volumen de puntos triplica al de rebotes y
+cuadruplica al de asistencias, proporcionando una estructura sólida para
+modelos predictivos.\\
 
 \chapter{Anexo B}
 
