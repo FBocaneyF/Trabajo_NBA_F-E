@@ -234,38 +234,45 @@ def page_reb(df_filtrada):
     st.divider()
     st.subheader("Correlación: Rebotes vs. Puntos Anotados")
     
-    fig_scatter = px.scatter(
-        df_filtrada, 
-        x='Diferencial_Rebotes', 
+    
+    fig_matriz = px.density_heatmap(
+        df_filtrada,
+        x='Diferencial_Rebotes',
         y='Margen_Victoria',
-        color='Margen_Victoria',  
-        color_continuous_scale=['#333333', '#FF007B'], 
-        trendline="ols",  
-        trendline_color_override="#FFFFFF", 
-        title="🏀 Impacto de los Rebotes en el Marcador Final",
+        
+        nbinsx=25, 
+        nbinsy=20,
+        color_continuous_scale=['#000000', '#440022', '#FF007B', '#FFFFFF'],
+        title="🏀 Matriz de Densidad: Rebotes vs. Marcador",
         labels={
-            'Diferencial_Rebotes': 'Ventaja en Rebotes', 
-            'Margen_Victoria': 'Margen de Victoria (PTS)'
-        },
-        opacity=0.7,
-        hover_data=['SEASON'] 
+            'Diferencial_Rebotes': 'Ventaja en Rebotes',
+            'Margen_Victoria': 'Margen de Victoria (PTS)',
+            'count': 'Frecuencia'
+        }
     )
 
-    fig_scatter.update_layout(
+    fig_matriz.update_traces(
+        showscale=True,
+        hovertemplate="<b>Ventaja Rebotes:</b> %{x}<br>" +
+                      "<b>Margen Victoria:</b> %{y}<br>" +
+                      "<b>Juegos en este rango:</b> %{z}<extra></extra>"
+    )
+
+    fig_matriz.update_layout(
+        template="plotly_dark",
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         font_color="white",
-        title_font_size=24,
-        xaxis=dict(showgrid=False, zeroline=False),
-        yaxis=dict(showgrid=True, gridcolor='#444444', zeroline=False),
-        coloraxis_showscale=False 
+        xaxis=dict(showgrid=True, gridcolor='#222', zeroline=False), 
+        yaxis=dict(showgrid=True, gridcolor='#222', zeroline=False),
+        coloraxis_showscale=True 
     )
 
-    fig_scatter.add_vline(x=0, line_dash="dot", line_color="#888888", line_width=1)
-    fig_scatter.add_hline(y=0, line_dash="dot", line_color="#888888", line_width=1)
-    fig_scatter.add_annotation(x=15, y=20, text="Dominio Total", showarrow=False, font_color="#00C8FF")
-    
-    st.plotly_chart(fig_scatter, use_container_width=True)
+    # Líneas de ejes en 0 para dividir los 4 cuadrantes de la matriz
+    fig_matriz.add_vline(x=0, line_dash="solid", line_color="#FF007B", opacity=0.3)
+    fig_matriz.add_hline(y=0, line_dash="solid", line_color="#FF007B", opacity=0.3)
+
+    st.plotly_chart(fig_matriz, use_container_width=True)
 
     st.divider()
 
