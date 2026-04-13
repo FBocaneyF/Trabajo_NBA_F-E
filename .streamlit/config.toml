@@ -1,0 +1,14 @@
+[theme]
+# Naranja vibrante para botones y sliders (estilo balón)
+primaryColor = "#FF6700"
+
+# Negro profundo para el fondo principal
+backgroundColor = "#000000"
+
+# Gris muy oscuro para la barra lateral y contenedores
+secondaryBackgroundColor = "#121212"
+
+# Blanco puro para que los números y nombres de jugadores resalten
+textColor = "#ffffff"
+
+font = "sans serif"
