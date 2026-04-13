@@ -298,9 +298,8 @@ df_nba <- read_csv("NBA.csv") %>%
   na.omit() %>%
   filter(SEASON == 2021)
 
-# 3. Preparar los datos para las TRES cajas (FG, FG3 y FT)
-# Seleccionamos los porcentajes de ambos equipos para tener una visión general de la liga
 df_cajas <- df_nba %>%
+# 3. Preparar los datos para las TRES cajas (FG, FG3 y FT)
   select(FG_PCT_home, FG_PCT_away, 
          FG3_PCT_home, FG3_PCT_away, 
          FT_PCT_home, FT_PCT_away) %>%
