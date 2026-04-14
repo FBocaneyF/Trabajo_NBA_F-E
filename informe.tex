@@ -443,7 +443,7 @@ significativa en comparación con su media.\\
 
 \textbf{Correlación:} Utilizada para cuantificar la fuerza y dirección
 de la relación entre las variables derivadas, permitiendo evaluar la
-dependencia entre indicadores.
+dependencia entre indicadores.\newpage
 
 \chapter{Análisis de Resultados}
 
@@ -470,11 +470,27 @@ depende de la inestabilidad del juego.\\
 
 \section{Dominio del Rebote}
 
-\textbf{Interpretación:} \ldots{}\\
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+\textbf{Interpretación:} Se implementó una Matriz de Densidad (Density
+Heatmap) por bloques para identificar la moda estadística y mitigar la
+saturación visual de los miles de registros procesados. Esta estructura
+de rejilla revela que el ``punto caliente'' o núcleo de máxima
+probabilidad se concentra en una ventaja mínima de rebotes (0 a 4) con
+un margen de victoria estrecho (5 a 9 puntos), demostrando que en la
+práctica el dominio del tablero suele acompañar a triunfos competitivos
+y no a victorias holgadas.\\
+
+Aunque el análisis de cuadrantes confirma que las palizas (más de 15
+puntos) rara vez ocurren sin una ventaja física significativa, la
+densidad de datos cerca del origen valida la paridad competitiva de la
+liga; el rebote es un factor incremental pero no determinante por sí
+solo, sugiriendo que la victoria depende de una combinación de
+eficiencia de tiro y otros factores contextuales. Basicamente, el
+gráfico demuestra que existe una correlación clara, pero no una
+causalidad absoluta entre el control del rebote y el resultado final.\\
 
 \section{Competitividad y Estabilidad}
-
-\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 \begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/unnamed-chunk-4-1} \end{center}
 
@@ -537,10 +553,6 @@ disputados. Finalmente la visualización establece una línea base de
 producción donde el volumen de puntos triplica al de rebotes y
 cuadruplica al de asistencias, proporcionando una estructura sólida para
 modelos predictivos.\\
-
-\chapter{Anexo B}
-
-\chapter{Anexo C}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                   REFERENCIAS                     %

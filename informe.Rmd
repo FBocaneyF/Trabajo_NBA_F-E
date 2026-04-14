@@ -277,33 +277,31 @@ El tratamiento de los datos siguió tres fases fundamentales:\
 
 **Coeficiente de Variación:** Empleado como una medida de dispersión relativa para determinar si la variabilidad de los datos es significativa en comparación con su media.\
 
-**Correlación:** Utilizada para cuantificar la fuerza y dirección de la relación entre las variables derivadas, permitiendo evaluar la dependencia entre indicadores.
+**Correlación:** Utilizada para cuantificar la fuerza y dirección de la relación entre las variables derivadas, permitiendo evaluar la dependencia entre indicadores.\
+
 
 
 \chapter{Análisis de Resultados}
 
-
 \section{Eficiencia vs Volatilidad}
 
 ```{r}
-# 1. Librerías
-library(readr)
-library(dplyr)
-library(tidyr)
+
+ # 1. Librerías
+
 library(ggplot2)
 library(scales)
 
-# 2. Cargar y filtrar para SEASON 2021
+# 2. Cargar y filtrar
 df_nba <- read_csv("NBA.csv") %>%
   na.omit() %>%
   filter(SEASON == 2021)
 
+# 3. Preparar datos
 df_cajas <- df_nba %>%
-# 3. Preparar los datos para las TRES cajas (FG, FG3 y FT)
   select(FG_PCT_home, FG_PCT_away, 
          FG3_PCT_home, FG3_PCT_away, 
          FT_PCT_home, FT_PCT_away) %>%
-  # Pasamos a formato largo y promediamos local/visitante por partido
   mutate(
     `Campo (FG%)` = (FG_PCT_home + FG_PCT_away) / 2,
     `Triples (FG3%)` = (FG3_PCT_home + FG3_PCT_away) / 2,
@@ -314,30 +312,46 @@ df_cajas <- df_nba %>%
                names_to = "Tipo_Tiro", 
                values_to = "Efectividad")
 
-# 4. Gráfica de 3 Cajas
+# 4. Gráfica de 3 Cajas Neon Dark
 ggplot(df_cajas, aes(x = Tipo_Tiro, y = Efectividad, fill = Tipo_Tiro)) +
-  geom_boxplot(outlier.color = "#D00070", alpha = 0.7, width = 0.5) +
+  # Cajas con bordes neón y color de outliers llamativo
+  geom_boxplot(outlier.color = "#FF007F", color = "white", alpha = 0.8, width = 0.5) +
   
-  # Colores rosados/morados para las 3 categorías
+  # Colores Rosa Neón acordes a la temática
   scale_fill_manual(values = c(
-    "Campo (FG%)" = "#D00070", 
-    "Triples (FG3%)"  = "#FFB6C1", 
-    "Libres (FT%)"   = "#A380A3"
+    "Campo (FG%)" = "#FF007F",   # Rosa Intenso
+    "Triples (FG3%)" = "#FF66B2", # Rosa Medio
+    "Libres (FT%)" = "#660033"    # Rosa Oscuro
   )) +
   
-  # Formato de porcentaje (ej: 50,0%) con coma
+  # Formato de porcentaje
   scale_y_continuous(labels = label_percent(decimal.mark = ",")) +
   
   labs(
-    title = "Analisis de Eficiencia en Derrota",
+    title = "Análisis de Eficiencia en Tiros",
+    subtitle = "Distribución de efectividad por categoría",
     x = "Tipo de Tiro",
     y = "Porcentaje de Efectividad"
   ) +
   
+  # Estética Total Black
   theme_minimal() +
   theme(
-    text = element_text(face = "bold"),
-    legend.position = "none" # Los nombres ya están abajo en el eje X
+    plot.background = element_rect(fill = "black", color = "black"),
+    panel.background = element_rect(fill = "black", color = "black"),
+    
+    # Textos
+    text = element_text(color = "white", face = "bold"),
+    plot.title = element_text(size = 16, color = "#FF007F", hjust = 0.5),
+    plot.subtitle = element_text(color = "gray80", hjust = 0.5),
+    axis.text = element_text(color = "white"),
+    axis.title = element_text(color = "white"),
+    
+    # Líneas de cuadrícula sutiles
+    panel.grid.major = element_line(color = "#333333"),
+    panel.grid.minor = element_blank(),
+    
+    legend.position = "none"
   )
 ```
 
@@ -349,81 +363,108 @@ La asimetria en los bigotes y la presencia de valores atípicos demuestran que e
 
 \section{Dominio del Rebote}
 ```{r}
+df_nba_2021 <- df_nba %>%
+  mutate(
+    ventaja_rebotes = REB_home - REB_away,
+    margen_victoria = PTS_home - PTS_away
+  )
 
+# grafica
+ggplot(df_nba_2021, aes(x = ventaja_rebotes, y = margen_victoria)) +
+  geom_bin2d(bins = 30) +
+  
+  
+  scale_fill_gradient(low = "#ffd1e6", high = "#ff007f", name = "Frecuencia") +
+  geom_vline(xintercept = 0, color = "#ff0055", linetype = "dashed", alpha = 0.8) +
+  geom_hline(yintercept = 0, color = "#ff0055", linetype = "dashed", alpha = 0.8) +
+  labs(
+    title = "Matriz de Densidad: Rebotes vs. Marcador",
+    x = "Ventaja en Rebotes",
+    y = "Margen de Victoria"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = "black", color = NA),
+    panel.background = element_rect(fill = "black", color = NA),
+    panel.grid.major = element_line(color = "#333333"),
+    panel.grid.minor = element_blank(),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    plot.title = element_text(face = "bold", size = 14)
+  )
 
 
 ```
 
-**Interpretación:** ...\
+**Interpretación:** Se implementó una Matriz de Densidad (Density Heatmap) por bloques para identificar la moda estadística y mitigar la saturación visual de los miles de registros procesados. Esta estructura de rejilla revela que el "punto caliente" o núcleo de máxima probabilidad se concentra en una ventaja mínima de rebotes (0 a 4) con un margen de victoria estrecho (5 a 9 puntos), demostrando que en la práctica el dominio del tablero suele acompañar a triunfos competitivos y no a victorias holgadas.\
+
+Aunque el análisis de cuadrantes confirma que las palizas (más de 15 puntos) rara vez ocurren sin una ventaja física significativa, la densidad de datos cerca del origen valida la paridad competitiva de la liga; el rebote es un factor incremental pero no determinante por sí solo, sugiriendo que la victoria depende de una combinación de eficiencia de tiro y otros factores contextuales. Basicamente, el gráfico demuestra que existe una correlación clara, pero no una causalidad absoluta entre el control del rebote y el resultado final.\
 
 \section{Competitividad y Estabilidad}
 
 ```{r}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(scales)
-
-#datos
-df_nba_2021 <- read_csv("NBA.csv") %>%
-  na.omit() %>%
-  filter(SEASON == 2021) %>%
-  mutate(
-    AST_Dif = if_else(HOME_TEAM_WINS == 1, AST_home, AST_away) - 
-              if_else(HOME_TEAM_WINS == 1, AST_away, AST_home),
-    REB_Dif = if_else(HOME_TEAM_WINS == 1, REB_home, REB_away) - 
-              if_else(HOME_TEAM_WINS == 1, REB_away, REB_home),
-    Margen = if_else(HOME_TEAM_WINS == 1, PTS_home - PTS_away, PTS_away - PTS_home),
-    Tipo_Juego = case_when(
-      Margen <= 5 ~ "Cerrado",
-      Margen > 5 & Margen < 15 ~ "Normal",
-      Margen >= 15 ~ "Abierto"
-    )
-  )
-
-# Gráfica
-ggplot(df_nba_2021, aes(x = AST_Dif, y = REB_Dif, color = Tipo_Juego)) +
-  geom_point(alpha = 0.7, size = 3) +
-  scale_color_manual(values = c("Abierto" = "#D00070", "Normal" = "#FFB6C1", "Cerrado" = "#A380A3")) +
-  scale_x_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
-  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
-  labs(title = "Relación Asistencias vs Rebotes",
-       x = "Diferencial de Asistencias", y = "Diferencial de Rebotes",
-       color = "Tipo de Juego") +
-  theme_minimal() +
-  theme(text = element_text(face = "bold"), legend.position = "bottom")
+ 
 ```
 ```{r}
-library(readr)
-library(dplyr)
 library(ggplot2)
 library(scales)
+library(patchwork) 
 
-# datos)
+
 df_nba_2021 <- read_csv("NBA.csv") %>%
   na.omit() %>%
   filter(SEASON == 2021) %>%
   mutate(
-    AST_Dif = if_else(HOME_TEAM_WINS == 1, AST_home, AST_away) - 
-              if_else(HOME_TEAM_WINS == 1, AST_away, AST_home),
+    AST_Dif = if_else(HOME_TEAM_WINS == 1, AST_home - AST_away, AST_away - AST_home),
+    REB_Dif = if_else(HOME_TEAM_WINS == 1, REB_home - REB_away, REB_away - REB_home),
     Margen = if_else(HOME_TEAM_WINS == 1, PTS_home - PTS_away, PTS_away - PTS_home),
-    Tipo_Juego = case_when(
+    Tipo_Juego = factor(case_when(
       Margen <= 5 ~ "Cerrado",
       Margen > 5 & Margen < 15 ~ "Normal",
       Margen >= 15 ~ "Abierto"
+    ), levels = c("Cerrado", "Normal", "Abierto")) # Ordenar categorías
+  )
+
+
+tema_neon <- theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = "black", color = "black"),
+    panel.background = element_rect(fill = "black", color = "black"),
+    text = element_text(color = "white", face = "bold"),
+    plot.title = element_text(size = 12, color = "#FF007F", hjust = 0.5),
+    axis.text = element_text(color = "white", size = 8),
+    axis.title = element_text(color = "white", size = 9),
+    panel.grid.major = element_line(color = "#333333"),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+# --- GRÁFICO 1: DISPERSIÓN ---
+p1 <- ggplot(df_nba_2021, aes(x = AST_Dif, y = REB_Dif, color = Tipo_Juego)) +
+  geom_point(alpha = 0.6, size = 2) +
+  scale_color_manual(values = c("Abierto" = "#FF007F", "Normal" = "#FF66B2", "Cerrado" = "#660033")) +
+  labs(title = "Dispersión: AST vs REB", x = "Dif. Asistencias", y = "Dif. Rebotes") +
+  tema_neon
+
+# --- GRÁFICO 2: VIOLÍN ---
+p2 <- ggplot(df_nba_2021, aes(x = Tipo_Juego, y = AST_Dif, fill = Tipo_Juego)) +
+  geom_violin(alpha = 0.8, color = "white", linewidth = 0.2) +
+  geom_boxplot(width = 0.1, color = "white", fill = "white", alpha = 0.5, outlier.shape = NA) +
+  scale_fill_manual(values = c("Abierto" = "#FF007F", "Normal" = "#FF66B2", "Cerrado" = "#660033")) +
+  labs(title = "Distribución de Asistencias", x = "Tipo de Juego", y = "Dif. Asistencias") +
+  tema_neon
+
+# --- UNIR AMBOS ---
+grafico_final <- p1 + p2 + 
+  plot_annotation(
+    title = 'ANÁLISIS MULTIDIMENSIONAL NBA 2021',
+    theme = theme(
+      plot.background = element_rect(fill = "black"),
+      plot.title = element_text(color = "#FF007F", face = "bold", size = 18, hjust = 0.5)
     )
   )
 
-# Gráfica
-ggplot(df_nba_2021, aes(x = Tipo_Juego, y = AST_Dif, fill = Tipo_Juego)) +
-  geom_violin(alpha = 0.7, color = "black") +
-  geom_boxplot(width = 0.1, color = "black", outlier.shape = NA) +
-  scale_fill_manual(values = c("Abierto" = "#D00070", "Normal" = "#FFB6C1", "Cerrado" = "#A380A3")) +
-  scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",")) +
-  labs(title = "Distribución de Asistencias por Tipo de Juego",
-       x = "Tipo de Juego", y = "Diferencial de Asistencias") +
-  theme_minimal() +
-  theme(text = element_text(face = "bold"), legend.position = "none")
+grafico_final
 ```
 
 **Interpretacion:** Se decidio utilizar un Gráfico de Dispersión con Violines Marginales para analizar la interacción multivariable entre el control del juego y el éxito deportivo. Esta visualización permite cruzar el diferencial de asistencias y rebotes, mientras que la codificación por color segmenta los resultados según el margen de victoria (Cerrado, Normal, Abierto). Los gráficos de violín integrados son fundamentales para observar la densidad de los datos, revelando dónde se concentra la probabilidad de éxito en cada categoría sin saturar la imagen.\
@@ -515,8 +556,4 @@ ggplot(df_hist, aes(x = SEASON, y = Total, color = Metrica, group = Metrica)) +
 El gráfico demuestra una correlación armónica entre puntos, rebotes y asistencias, sus movimientos proporcionales validan que estas variables de volumen dependen del ritmo de juego y la cantidad de partidos disputados. Finalmente la visualización establece una línea base de producción donde el volumen de puntos triplica al de rebotes y cuadruplica al de asistencias, proporcionando una estructura sólida para modelos predictivos.\
 
 
-
-\chapter{Anexo B}
-
-\chapter{Anexo C}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  13 APR 2026 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  14 APR 2026 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,7 +773,7 @@ Package hyperref Info: Link coloring ON on input line 74.
 \@outlinefile=\write3
 \openout3 = `informe.out'.
 
-<Latex/Classes/Escudos/ucvlogo.jpg, id=144, 676.02562pt x 668.4975pt>
+<Latex/Classes/Escudos/ucvlogo.jpg, id=136, 676.02562pt x 668.4975pt>
 File: Latex/Classes/Escudos/ucvlogo.jpg Graphic file (type jpg)
 <use Latex/Classes/Escudos/ucvlogo.jpg>
 Package pdftex.def Info: Latex/Classes/Escudos/ucvlogo.jpg  used on input line 
@@ -784,7 +784,7 @@ Overfull \hbox (0.96022pt too wide) in paragraph at lines 76--76
  [] 
  []
 
-<Latex/Classes/Escudos/faces.png, id=145, 346.29375pt x 200.75pt>
+<Latex/Classes/Escudos/faces.png, id=137, 346.29375pt x 200.75pt>
 File: Latex/Classes/Escudos/faces.png Graphic file (type png)
 <use Latex/Classes/Escudos/faces.png>
 Package pdftex.def Info: Latex/Classes/Escudos/faces.png  used on input line 76
@@ -841,7 +841,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 ...etitividad y Estabilidad}{13}{section.4.3}
+l.32 ...etitividad y Estabilidad}{14}{section.4.3}
                                                   % [1
 
 
@@ -1098,17 +1098,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 440--443
 
  []
 
-LaTeX Info: Redefining \. on input line 448.
-LaTeX Info: Redefining \% on input line 448.
+LaTeX Info: Redefining \. on input line 446.
+LaTeX Info: Redefining \% on input line 446.
 [11]
 Cap\'{\i }tulo 4.
-<informe_files/figure-latex/unnamed-chunk-1-1.pdf, id=261, 459.7175pt x 315.177
-5pt>
+<informe_files/figure-latex/unnamed-chunk-1-1.pdf, id=251, 471.7625pt x 325.215
+pt>
 File: informe_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/unnamed-chunk-1-1.pdf>
 Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-1-1.pdf  used
  on input line 452.
-(pdftex.def)             Requested size: 371.30594pt x 254.5758pt.
+(pdftex.def)             Requested size: 371.30594pt x 255.96922pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 454--458
 
@@ -1126,104 +1126,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 465--470
 
  []
 
+<informe_files/figure-latex/unnamed-chunk-2-1.pdf, id=267, 471.7625pt x 325.215
+pt>
+File: informe_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-2-1.pdf  used
+ on input line 473.
+(pdftex.def)             Requested size: 371.30594pt x 255.96922pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 475--483
 
  []
 
-<informe_files/figure-latex/unnamed-chunk-3-1.pdf, id=277, 461.725pt x 308.1512
-5pt>
-File: informe_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
-<use informe_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-3-1.pdf  used
- on input line 477.
-(pdftex.def)             Requested size: 371.30594pt x 247.80496pt.
-<informe_files/figure-latex/unnamed-chunk-4-1.pdf, id=278, 459.7175pt x 316.181
-24pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--492
+
+ []
+
+LaTeX Info: Redefining \. on input line 492.
+LaTeX Info: Redefining \% on input line 492.
+[13 <./informe_files/figure-latex/unnamed-chunk-2-1.pdf>]
+<informe_files/figure-latex/unnamed-chunk-4-1.pdf, id=285, 471.7625pt x 325.215
+pt>
 File: informe_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-4-1.pdf  used
- on input line 479.
-(pdftex.def)             Requested size: 371.30594pt x 255.38654pt.
-LaTeX Info: Redefining \. on input line 479.
-LaTeX Info: Redefining \% on input line 479.
-[13 <./informe_files/figure-latex/unnamed-chunk-3-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 481--490
+ on input line 495.
+(pdftex.def)             Requested size: 371.30594pt x 255.96922pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--501
+Underfull \hbox (badness 10000) in paragraph at lines 507--517
 
  []
 
-LaTeX Info: Redefining \. on input line 502.
-LaTeX Info: Redefining \% on input line 502.
+LaTeX Info: Redefining \. on input line 518.
+LaTeX Info: Redefining \% on input line 518.
 [14 <./informe_files/figure-latex/unnamed-chunk-4-1.pdf>]
+LaTeX Info: Redefining \. on input line 518.
+LaTeX Info: Redefining \% on input line 518.
+[15]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
-
- []
-
-[15
-
-]
-Ap\'{e}ndice A.
-<informe_files/figure-latex/unnamed-chunk-5-1.pdf, id=313, 459.7175pt x 316.181
-24pt>
-File: informe_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
-<use informe_files/figure-latex/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-5-1.pdf  used
- on input line 521.
-(pdftex.def)             Requested size: 371.30594pt x 255.38654pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 523--532
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 533--540
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
 
  []
 
 [16
 
- <./informe_files/figure-latex/unnamed-chunk-5-1.pdf>] [17]
-Ap\'{e}ndice B.
-[18
-
 ]
-Ap\'{e}ndice C.
-No file informe.bbl.
-[19
+Ap\'{e}ndice A.
+<informe_files/figure-latex/unnamed-chunk-5-1.pdf, id=312, 459.7175pt x 316.181
+24pt>
+File: informe_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/unnamed-chunk-5-1.pdf  used
+ on input line 537.
+(pdftex.def)             Requested size: 371.30594pt x 255.38654pt.
 
-] (./informe.aux
+Underfull \hbox (badness 10000) in paragraph at lines 539--548
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--556
+
+ []
+
+[17
+
+ <./informe_files/figure-latex/unnamed-chunk-5-1.pdf>]
+No file informe.bbl.
+[18] (./informe.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
 )
@@ -1235,13 +1237,13 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: D4BEC9F5626A5267E4F37D3886E9253E;7551.
+(rerunfilecheck)             Checksum: E94C07FA9777A898F82465C4693AEE21;7353.
  ) 
 Here is how much of TeX's memory you used:
- 20632 strings out of 474222
- 342636 string characters out of 5748733
+ 20625 strings out of 474222
+ 342539 string characters out of 5748733
  1937975 words of memory out of 5000000
- 42482 multiletter control sequences out of 15000+600000
+ 42478 multiletter control sequences out of 15000+600000
  566866 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,433b,780s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1257,10 +1259,10 @@ c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb>
-Output written on informe.pdf (23 pages, 550056 bytes).
+Output written on informe.pdf (22 pages, 549597 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 61 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 295 words of extra memory for PDF output out of 10000 (max. 10000000)
 
