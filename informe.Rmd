@@ -90,7 +90,7 @@ Debido a esto, se plantea las siguientes preguntas de investigación:\
 
 \textbf{2.}	¿Como incide la capacidad de domino en el rebote sobre la victoria en el marcador final?\
 
-\textbf{3.}¿Existe una relación en la que los indicadores clave de rendimiento (puntos, rebotes y asistencias) afectan a la estabilidad en el tiro de campo, y si en los juegos más cerrados tienen un menor porcentaje?\
+\textbf{3.}¿Existe una relación en la que los indicadores clave de rendimiento (rebotes y asistencias) afectan a la estabilidad en el tiro de campo, y si en los juegos más cerrados tienen un menor porcentaje?\
 
 
 \section{Justificación}
@@ -276,7 +276,7 @@ El tratamiento de los datos siguió tres fases fundamentales:\
 
 **Coeficiente de Variación:** Empleado como una medida de dispersión relativa para determinar si la variabilidad de los datos es significativa en comparación con su media.\
 
-**Correlación:** Utilizada para cuantificar la fuerza y dirección de la relación entre las variables derivadas, permitiendo evaluar la dependencia entre indicadores.\
+**Correlación:** Utilizada para cuantificar la fuerza y dirección de la relación entre las variables derivadas, permitiendo evaluar la dependencia entre indicadores.\newpage
 
 
 
@@ -358,7 +358,7 @@ ggplot(df_cajas, aes(x = Tipo_Tiro, y = Efectividad, fill = Tipo_Tiro)) +
 
 Los Tiros Libres (FT%) son los más efectivos pero volátiles, mientras que los Tiros de Campo (FG%) muestran una consistencia uniforme entre el 40% y 50% y por el contrario, los Triples (FG3%) se mantienen casi totalmente por debajo de la barrera crítica del 50%, demostrando su mayor dificultad técnica.\
 
-La asimetria en los bigotes y la presencia de valores atípicos demuestran que en esta temporada era más probable tener un colapso en tiros libres o una racha extraordinaria en triples que viceversa, confirmando que la eficiencia no sigue una distribución normal sino que depende de la inestabilidad del juego.\
+La asimetria en los bigotes y la presencia de valores atípicos demuestran que en esta temporada era más probable tener un colapso en tiros libres o una racha extraordinaria en triples que viceversa, confirmando que la eficiencia no sigue una distribución normal sino que depende de la inestabilidad del juego.\newpage
 
 \section{Dominio del Rebote}
 ```{r}
@@ -397,7 +397,7 @@ ggplot(df_nba_2021, aes(x = ventaja_rebotes, y = margen_victoria)) +
 
 **Interpretación:** Se implementó una Matriz de Densidad (Density Heatmap) por bloques para identificar la moda estadística y mitigar la saturación visual de los miles de registros procesados. Esta estructura de rejilla revela que el "punto caliente" o núcleo de máxima probabilidad se concentra en una ventaja mínima de rebotes (0 a 4) con un margen de victoria estrecho (5 a 9 puntos), demostrando que en la práctica el dominio del tablero suele acompañar a triunfos competitivos y no a victorias holgadas.\
 
-Aunque el análisis de cuadrantes confirma que las palizas (más de 15 puntos) rara vez ocurren sin una ventaja física significativa, la densidad de datos cerca del origen valida la paridad competitiva de la liga; el rebote es un factor incremental pero no determinante por sí solo, sugiriendo que la victoria depende de una combinación de eficiencia de tiro y otros factores contextuales. Basicamente, el gráfico demuestra que existe una correlación clara, pero no una causalidad absoluta entre el control del rebote y el resultado final.\
+Aunque el análisis de cuadrantes confirma que las palizas (más de 15 puntos) rara vez ocurren sin una ventaja física significativa, la densidad de datos cerca del origen valida la paridad competitiva de la liga; el rebote es un factor incremental pero no determinante por sí solo, sugiriendo que la victoria depende de una combinación de eficiencia de tiro y otros factores contextuales. Basicamente, el gráfico demuestra que existe una correlación clara, pero no una causalidad absoluta entre el control del rebote y el resultado final.\newpage
 
 \section{Competitividad y Estabilidad}
 
@@ -462,13 +462,13 @@ grafico_final <- p1 + p2 +
       plot.title = element_text(color = "#FF007F", face = "bold", size = 18, hjust = 0.5)
     )
   )
-
+#prinnnt
 grafico_final
 ```
 
 **Interpretacion:** Se decidio utilizar un Gráfico de Dispersión con Violines Marginales para analizar la interacción multivariable entre el control del juego y el éxito deportivo. Esta visualización permite cruzar el diferencial de asistencias y rebotes, mientras que la codificación por color segmenta los resultados según el margen de victoria (Cerrado, Normal, Abierto). Los gráficos de violín integrados son fundamentales para observar la densidad de los datos, revelando dónde se concentra la probabilidad de éxito en cada categoría sin saturar la imagen.\
 
-El análisis de los datos confirma que las victorias más contundentes están estrechamente ligadas a un alto diferencial de asistencias, lo que posiciona al movimiento del balón como el principal motor de dominio. Ademas la distribución simétrica en los violines de rebotes sugiere una alta varianza, indicando que se puede ganar incluso con desventaja física si se compensa con eficiencia colectiva. En resumen este gráfico demuestra que asistencias y rebotes funcionan como variables independientes pero complementarias: la excelencia de una puede mitigar deficiencias en la otra dentro de la variabilidad aleatoria de cada encuentro.\
+El análisis de los datos confirma que las victorias más contundentes están estrechamente ligadas a un alto diferencial de asistencias, lo que posiciona al movimiento del balón como el principal motor de dominio. Ademas la distribución simétrica en los violines de rebotes sugiere una alta varianza, indicando que se puede ganar incluso con desventaja física si se compensa con eficiencia colectiva. En resumen este gráfico demuestra que asistencias y rebotes funcionan como variables independientes pero complementarias: la excelencia de una puede mitigar deficiencias en la otra dentro de la variabilidad aleatoria de cada encuentro.\newpage
 
 \chapter{Conclusiones y Recomendaciones}
 
