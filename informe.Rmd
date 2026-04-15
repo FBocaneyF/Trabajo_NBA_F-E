@@ -405,8 +405,6 @@ Aunque el análisis de cuadrantes confirma que las palizas (más de 15 puntos) r
  
 ```
 ```{r}
-library(ggplot2)
-library(scales)
 library(patchwork) 
 
 
@@ -497,11 +495,7 @@ El análisis multidimensional revela que las victorias más contundentes están 
 **METRICAS POR TEMPORADA**
 ```{r}
 
-library(readr)
-library(dplyr)
-library(tidyr)
 library(ggplot2)
-library(scales)
 
 # datos
 
